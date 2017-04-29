@@ -27,21 +27,21 @@ angular.module('starter.controllers', [])
 			
 	}
 	
-	if($window.localStorage.getItem(0) == "good"){
-		$scope.address.streetAddress = $window.localStorage.getItem(1);
-		$scope.address.city = $window.localStorage.getItem(2);
-		$scope.address.state = $window.localStorage.getItem(3);
-		$scope.address.zipCode = $window.localStorage.getItem(4);
+	if($window.localStorage.getItem("address") == "good"){
+		$scope.address.streetAddress = $window.localStorage.getItem("streetAddress");
+		$scope.address.city = $window.localStorage.getItem("city");
+		$scope.address.state = $window.localStorage.getItem("state");
+		$scope.address.zipCode = $window.localStorage.getItem("zipCode");
 	}
 	else{
 		$scope.address.streetAddress = "";
 		$scope.address.city = "";
 		$scope.address.state = "";
 		$scope.address.zipCode = "";
-		$window.localStorage.setItem(1, null);
-		$window.localStorage.setItem(2, null);
-		$window.localStorage.setItem(3, null);
-		$window.localStorage.setItem(4, null);
+		$window.localStorage.setItem("streetAddress", null);
+		$window.localStorage.setItem("city", null);
+		$window.localStorage.setItem("state", null);
+		$window.localStorage.setItem("zipCode", null);
 	}
 	//For debugging purposes
 //	console.log($scope.address.streetAddress);
@@ -67,14 +67,14 @@ angular.module('starter.controllers', [])
 				$scope.address.city != "" &&
 				$scope.address.state != "" &&
 				$scope.address.zipCode != ""){
-			$window.localStorage.setItem(0, "good");
-			$window.localStorage.setItem(1, $scope.address.streetAddress);
-			$window.localStorage.setItem(2, $scope.address.city);
-			$window.localStorage.setItem(3, $scope.address.state);
-			$window.localStorage.setItem(4, $scope.address.zipCode);
+			$window.localStorage.setItem("address", "good");
+			$window.localStorage.setItem("streetAddress", $scope.address.streetAddress);
+			$window.localStorage.setItem("city", $scope.address.city);
+			$window.localStorage.setItem("state", $scope.address.state);
+			$window.localStorage.setItem("zipCode", $scope.address.zipCode);
 			$ionicLoading.show({ template: 'Address saved!', noBackdrop: true, duration: 1000 });
 		} else {
-			$window.localStorage.clear(0);
+			$window.localStorage.clear("address");
 			$ionicLoading.show({ template: 'Address not completed. Try again.', noBackdrop: true, duration: 2000 });
 		}
 		//For debugging purposes
@@ -91,11 +91,11 @@ angular.module('starter.controllers', [])
 	};
 	
 	$scope.clearAddress = function() {
-		$window.localStorage.clear(0);
-		$window.localStorage.clear(1);
-		$window.localStorage.clear(2);
-		$window.localStorage.clear(3);
-		$window.localStorage.clear(4);
+		$window.localStorage.clear("address");
+		$window.localStorage.clear("streetAddress");
+		$window.localStorage.clear("city");
+		$window.localStorage.clear("state");
+		$window.localStorage.clear("zipCode");
 	}
 })
 
