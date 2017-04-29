@@ -54,7 +54,6 @@ angular.module('bouncer', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/main.html',
-          controller: 'appMainCtrl'
         }
       }
     });

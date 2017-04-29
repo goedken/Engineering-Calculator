@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicLoading, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window) {
 
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
@@ -10,10 +10,7 @@ angular.module('starter.controllers', [])
 	//});
 
 	// Form data for the login modal
-	$scope.streetAddress = "";
-	$scope.city = "";
-	$scope.state = "";
-	$scope.zipCode = "";
+	
 	
 	//Load popup window layout from defaultHome.html
 	$ionicModal.fromTemplateUrl('templates/defaultHome.html', {
@@ -21,6 +18,36 @@ angular.module('starter.controllers', [])
 	}).then(function(modal) {
 		$scope.modal = modal;
 	});
+	
+	$scope.address = {
+			streetAddress: "",
+			city: "",
+			state: "",
+			zipCode: ""
+			
+	}
+	
+	if($window.localStorage.getItem(0) == "good"){
+		$scope.address.streetAddress = $window.localStorage.getItem(1);
+		$scope.address.city = $window.localStorage.getItem(2);
+		$scope.address.state = $window.localStorage.getItem(3);
+		$scope.address.zipCode = $window.localStorage.getItem(4);
+	}
+	else{
+		$scope.address.streetAddress = "";
+		$scope.address.city = "";
+		$scope.address.state = "";
+		$scope.address.zipCode = "";
+		$window.localStorage.setItem(1, null);
+		$window.localStorage.setItem(2, null);
+		$window.localStorage.setItem(3, null);
+		$window.localStorage.setItem(4, null);
+	}
+	//For debugging purposes
+	console.log($scope.address.streetAddress);
+	console.log($scope.address.city);
+	console.log($scope.address.state);
+	console.log($scope.address.zipCode);
 	
 	//Closes popup
 	$scope.closeWindow = function() {
@@ -35,7 +62,26 @@ angular.module('starter.controllers', [])
 	//Save user entered data
 	$scope.save = function() {
 		$ionicLoading.show({ template: 'Saving', noBackdrop: true, duration: 1000 });
-		console.log($scope.streetAddress);
+		
+		if($scope.address.streetAddress != "" &&
+				$scope.address.city != "" &&
+				$scope.address.state != "" &&
+				$scope.address.zipCode != ""){
+			$window.localStorage.setItem(0, "good");
+			$window.localStorage.setItem(1, $scope.address.streetAddress);
+			$window.localStorage.setItem(2, $scope.address.city);
+			$window.localStorage.setItem(3, $scope.address.state);
+			$window.localStorage.setItem(4, $scope.address.zipCode);
+			$ionicLoading.show({ template: 'Address saved!', noBackdrop: true, duration: 1000 });
+		} else {
+			$window.localStorage.clear(0);
+			$ionicLoading.show({ template: 'Address not completed. Try again.', noBackdrop: true, duration: 2000 });
+		}
+		//For debugging purposes
+		console.log($scope.address.streetAddress);
+		console.log($scope.address.city);
+		console.log($scope.address.state);
+		console.log($scope.address.zipCode);
 
 		// Simulate a login delay. Remove this and replace with your login
 		// code if using a login system
@@ -43,10 +89,4 @@ angular.module('starter.controllers', [])
 			$scope.closeWindow();
 		}, 1000);
 	};
-})
-
-.controller('appMainCtrl', function($scope) {
-})
-
-.controller('appMainCtrl', function($scope, $stateParams) {
 });
