@@ -44,10 +44,10 @@ angular.module('starter.controllers', [])
 		$window.localStorage.setItem(4, null);
 	}
 	//For debugging purposes
-	console.log($scope.address.streetAddress);
-	console.log($scope.address.city);
-	console.log($scope.address.state);
-	console.log($scope.address.zipCode);
+//	console.log($scope.address.streetAddress);
+//	console.log($scope.address.city);
+//	console.log($scope.address.state);
+//	console.log($scope.address.zipCode);
 	
 	//Closes popup
 	$scope.closeWindow = function() {
@@ -78,10 +78,10 @@ angular.module('starter.controllers', [])
 			$ionicLoading.show({ template: 'Address not completed. Try again.', noBackdrop: true, duration: 2000 });
 		}
 		//For debugging purposes
-		console.log($scope.address.streetAddress);
-		console.log($scope.address.city);
-		console.log($scope.address.state);
-		console.log($scope.address.zipCode);
+//		console.log($scope.address.streetAddress);
+//		console.log($scope.address.city);
+//		console.log($scope.address.state);
+//		console.log($scope.address.zipCode);
 
 		// Simulate a login delay. Remove this and replace with your login
 		// code if using a login system
@@ -89,4 +89,49 @@ angular.module('starter.controllers', [])
 			$scope.closeWindow();
 		}, 1000);
 	};
+	
+	$scope.clearAddress = function() {
+		$window.localStorage.clear(0);
+		$window.localStorage.clear(1);
+		$window.localStorage.clear(2);
+		$window.localStorage.clear(3);
+		$window.localStorage.clear(4);
+	}
+})
+
+.controller('MainCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window) {
+	$scope.employed;
+	if($window.localStorage.getItem("employed") == "true"){
+		$scope.employed = true;
+	} else {
+		$scope.employed = false;
+	}
+	//For debugging purposes
+//	console.log($scope.employed);
+//	console.log($window.localStorage.getItem("employed"));
+	if($scope.employed == false){
+		$scope.buttonText = "Employ Bouncer";
+	} else {
+		$scope.buttonText = "Retire Bouncer";
+	}
+	$scope.employBouncer = function(){
+		if($scope.employed == true){
+			$scope.retireBouncer();
+			$scope.employed = false;
+			$window.localStorage.setItem("employed", $scope.employed);
+			$scope.buttonText = "Employ Bouncer";
+			return;
+		}
+		$scope.employed = true;
+		$window.localStorage.setItem("employed", $scope.employed);
+		$scope.buttonText = "Retire Bouncer";
+		$ionicLoading.show({ template: 'Bouncer employed', noBackdrop: true, duration: 1000 });
+		//For debugging purposes
+//		console.log($scope.employed);
+//		console.log($window.localStorage.getItem("employed"));
+	};
+	
+	$scope.retireBouncer = function(){
+		$ionicLoading.show({ template: 'Bouncer retired', noBackdrop: true, duration: 1000 });
+	}; 
 });

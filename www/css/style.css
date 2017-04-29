@@ -1,1 +1,13 @@
-/* Empty. Add your own CSS if you like */
+#employBouncer {
+	font-size: 80px;
+	font-weight: bold;
+	height: 5%;
+	width: 62%;
+	max-width: 100%;
+	padding-top: 50px;
+	padding-bottom: 120px;
+	border-radius: 25px;
+	left: 19.3%;
+	top: 69.5%;
+	position: absolute;
+}
