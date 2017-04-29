@@ -12,25 +12,26 @@
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
-  <ion-side-menu side="left">
+<ion-side-menu side="left" can-drag-menu>
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+      <h1 class="title">Menu</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
+        <ion-item menu-close ng-click="defaultHome()">
+          Set Default Home Location
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+        <ion-item menu-close href="#/app/preferences">
+          Preferences
         </ion-item>
         <ion-item menu-close href="#/app/browse">
           Browse
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
+        <ion-item menu-close href="#/app/main">
+          AppMain
         </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>
+

@@ -1,56 +1,92 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+	// With the new view caching in Ionic, Controllers are only called
+	// when they are recreated or on app start, instead of every page change.
+	// To listen for when this page is active (for example, to refresh data),
+	// listen for the $ionicView.enter event:
+	//$scope.$on('$ionicView.enter', function(e) {
+	//});
 
-  // Form data for the login modal
-  $scope.loginData = {};
+	// Form data for the login modal
+	
+	
+	//Load popup window layout from defaultHome.html
+	$ionicModal.fromTemplateUrl('templates/defaultHome.html', {
+		scope: $scope
+	}).then(function(modal) {
+		$scope.modal = modal;
+	});
+	
+	$scope.address = {
+			streetAddress: "",
+			city: "",
+			state: "",
+			zipCode: ""
+			
+	}
+	
+	if($window.localStorage.getItem(0) == "good"){
+		$scope.address.streetAddress = $window.localStorage.getItem(1);
+		$scope.address.city = $window.localStorage.getItem(2);
+		$scope.address.state = $window.localStorage.getItem(3);
+		$scope.address.zipCode = $window.localStorage.getItem(4);
+	}
+	else{
+		$scope.address.streetAddress = "";
+		$scope.address.city = "";
+		$scope.address.state = "";
+		$scope.address.zipCode = "";
+		$window.localStorage.setItem(1, null);
+		$window.localStorage.setItem(2, null);
+		$window.localStorage.setItem(3, null);
+		$window.localStorage.setItem(4, null);
+	}
+	//For debugging purposes
+	console.log($scope.address.streetAddress);
+	console.log($scope.address.city);
+	console.log($scope.address.state);
+	console.log($scope.address.zipCode);
+	
+	//Closes popup
+	$scope.closeWindow = function() {
+		$scope.modal.hide();
+	};
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+	//Opens popup
+	$scope.defaultHome = function() {
+		$scope.modal.show();
+	};
+	
+	//Save user entered data
+	$scope.save = function() {
+		$ionicLoading.show({ template: 'Saving', noBackdrop: true, duration: 1000 });
+		
+		if($scope.address.streetAddress != "" &&
+				$scope.address.city != "" &&
+				$scope.address.state != "" &&
+				$scope.address.zipCode != ""){
+			$window.localStorage.setItem(0, "good");
+			$window.localStorage.setItem(1, $scope.address.streetAddress);
+			$window.localStorage.setItem(2, $scope.address.city);
+			$window.localStorage.setItem(3, $scope.address.state);
+			$window.localStorage.setItem(4, $scope.address.zipCode);
+			$ionicLoading.show({ template: 'Address saved!', noBackdrop: true, duration: 1000 });
+		} else {
+			$window.localStorage.clear(0);
+			$ionicLoading.show({ template: 'Address not completed. Try again.', noBackdrop: true, duration: 2000 });
+		}
+		//For debugging purposes
+		console.log($scope.address.streetAddress);
+		console.log($scope.address.city);
+		console.log($scope.address.state);
+		console.log($scope.address.zipCode);
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
-})
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+		// Simulate a login delay. Remove this and replace with your login
+		// code if using a login system
+		$timeout(function() {
+			$scope.closeWindow();
+		}, 1000);
+	};
 });
