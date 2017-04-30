@@ -11,3 +11,19 @@
 	top: 69.5%;
 	position: absolute;
 }
+
+.preferencesList {
+	position: absolute;
+	top: 2%;
+	width: 100%;
+}
+
+.preferenceOption {
+	position: absolute;
+	right: 3%;
+	font-size: 26px;
+}
+
+.preferenceItem {
+	
+}
