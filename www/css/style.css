@@ -1,11 +1,20 @@
+@media ( min-width: 480px ) and ( max-width : 1080px) {
+	#employBouncer {
+		font-size: 72px;
+	}
+}
+
+@media ( min-width: 1080px ) and ( max-width : 1440px) {
+	#employBouncer {
+		font-size: 84px;
+	}
+}
+
 #employBouncer {
-	font-size: 80px;
 	font-weight: bold;
-	height: 5%;
+	height: 100px;
 	width: 62%;
 	max-width: 100%;
-	padding-top: 50px;
-	padding-bottom: 120px;
 	border-radius: 25px;
 	left: 19.3%;
 	top: 69.5%;

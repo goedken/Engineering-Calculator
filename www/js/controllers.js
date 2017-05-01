@@ -1,6 +1,8 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window, $ionicPlatform) {
+
+
 
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
@@ -9,24 +11,29 @@ angular.module('starter.controllers', [])
 	//$scope.$on('$ionicView.enter', function(e) {
 	//});
 
-	// Form data for the login modal
-	
-	
+//	function onLoad(){
+//		document.addEventListener("deviceready", onDeviceReady, false);
+//	}
+//	
+//	function onDeviceReady(){
+//		document.addEventListener("pause", onPause, false);
+//		document.addEventListener("resume", onResume, false);
+//	}
+
 	//Load popup window layout from defaultHome.html
 	$ionicModal.fromTemplateUrl('templates/defaultHome.html', {
 		scope: $scope
 	}).then(function(modal) {
 		$scope.modal = modal;
 	});
-	
+
 	$scope.address = {
 			streetAddress: "",
 			city: "",
 			state: "",
 			zipCode: ""
-			
 	}
-	
+
 	if($window.localStorage.getItem("address") == "good"){
 		$scope.address.streetAddress = $window.localStorage.getItem("streetAddress");
 		$scope.address.city = $window.localStorage.getItem("city");
@@ -48,7 +55,7 @@ angular.module('starter.controllers', [])
 //	console.log($scope.address.city);
 //	console.log($scope.address.state);
 //	console.log($scope.address.zipCode);
-	
+
 	//Closes popup
 	$scope.closeWindow = function() {
 		$scope.modal.hide();
@@ -58,11 +65,11 @@ angular.module('starter.controllers', [])
 	$scope.defaultHome = function() {
 		$scope.modal.show();
 	};
-	
+
 	//Save user entered data
 	$scope.save = function() {
 		$ionicLoading.show({ template: 'Saving', noBackdrop: true, duration: 1000 });
-		
+
 		if($scope.address.streetAddress != "" &&
 				$scope.address.city != "" &&
 				$scope.address.state != "" &&
@@ -89,7 +96,7 @@ angular.module('starter.controllers', [])
 			$scope.closeWindow();
 		}, 1000);
 	};
-	
+
 	$scope.clearAddress = function() {
 		$window.localStorage.clear("address");
 		$window.localStorage.clear("streetAddress");
@@ -97,10 +104,21 @@ angular.module('starter.controllers', [])
 		$window.localStorage.clear("state");
 		$window.localStorage.clear("zipCode");
 	}
+	
+	function onPause(){
+		$ionicLoading.show({ template: 'App in background', noBackdrop: true, duration: 1000 });
+	}
+	
+	function onResume(){
+		$ionicLoading.show({ template: 'App in foreground', noBackdrop: true, duration: 1000 });
+	}
+	$ionicPlatform.on('pause', onPause());
+	$ionicPlatform.on('resume', onResume());
 })
 
 .controller('MainCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window) {
 	$scope.employed;
+	let app;
 	if($window.localStorage.getItem("employed") == "true"){
 		$scope.employed = true;
 	} else {
@@ -122,6 +140,7 @@ angular.module('starter.controllers', [])
 			$scope.buttonText = "Employ Bouncer";
 			return;
 		}
+
 		$scope.employed = true;
 		$window.localStorage.setItem("employed", $scope.employed);
 		$scope.buttonText = "Retire Bouncer";
@@ -130,8 +149,8 @@ angular.module('starter.controllers', [])
 //		console.log($scope.employed);
 //		console.log($window.localStorage.getItem("employed"));
 	};
-	
+
 	$scope.retireBouncer = function(){
 		$ionicLoading.show({ template: 'Bouncer retired', noBackdrop: true, duration: 1000 });
-	}; 
+	};
 });
