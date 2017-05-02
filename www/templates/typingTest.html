@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<ion-view view-title="Typing Test">
+  <ion-content>
+    <!--TODO - Add onload to grab timestamp at start of test -->
+    <div align="center">
+      <h1>Retype the below set of words as quickly and accurately as possible ({{probNum}} of 3)</h1>
+      <br>
+      <h3>{{typingText}}</h3>
+      <br>
+      <input type="text" name="typingAnswer" ng-model="$parent.typingAnswer" placeholder="Answer">
+      <br>
+      <button id="testButton" ng-click="processAnswer()">Submit</button>
+    </div>
+
+  </ion-content>
+</ion-view>

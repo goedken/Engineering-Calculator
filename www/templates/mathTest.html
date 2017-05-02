@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<ion-view view-title="Math Test">
+  <ion-content>
+    <!--TODO - Add onload to grab timestamp at start of test -->
+    <div align="center">
+      <h1>Enter the correct answer to the problem as quickly as possible ({{probNum}} of 3)</h1>
+      <br>
+      <h3>{{mathProblem}}</h3>
+      <br>
+      <input type="text" name="mathAnswer" ng-model="$parent.mathAnswer" placeholder="Answer">
+      <br>
+      <button id="testButton" ng-click="processAnswer()">Submit</button>
+    </div>
+  </ion-content>
+</ion-view>

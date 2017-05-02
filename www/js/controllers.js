@@ -281,4 +281,107 @@ angular.module('starter.controllers', [])
     $scope.mathProblem = questions[$scope.firstQ];
 
 
-  });
+  })
+
+.controller('typingTestCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window, $state){
+
+  //words were chosen by stream of consciousness, feel free to change them, shouldn't
+  //affect the code. Tried to keep them to 4-6 letters for consistency - Sean
+  var words = {
+    0: "test",
+    1: "ration",
+    2: "spike",
+    3: "knife",
+    4: "trike",
+    5: "rain",
+    6: "tiger",
+    7: "trial",
+    8: "dusk",
+    9: "relish",
+    10: "region",
+    11: "icon",
+    12: "made",
+    13: "baby",
+    14: "train",
+    15: "mascot",
+    16: "raise",
+    17: "under",
+    18: "brat",
+    19: "rake"
+  }
+
+  /*
+  Creates a random 5 word phrase from the dictionary of words and returns it as one string
+   */
+  $scope.generatePhrase = function(){
+    var indices = {};
+    var phrase = "";
+    for(i = 0; i < 5; i++){
+      var notDone = true;
+      while(notDone){
+        var isDuplicate = false;
+        tempIndex = Math.floor(Math.random()*(0 + 20)); //random integer between 0 and 19, inclusive
+        for(j = 0; j < 5; j++){//check if index has been used
+          if(indices[j] == tempIndex){
+            var isDuplicate = true;
+          }
+        }
+        if(!isDuplicate){//add index to index list and append word to phrase string
+          indices[i] = tempIndex;
+          phrase += words[tempIndex];
+          notDone = false;
+          if(i < 4){
+            phrase += " ";
+          }
+        }
+      }
+    }
+
+    return phrase;
+  }
+
+  $scope.phrase1 = $scope.generatePhrase();
+  $scope.phrase2 = $scope.generatePhrase();
+  $scope.phrase3 = $scope.generatePhrase();
+  $scope.probNum = 1;
+  $scope.correctAnswers = 0;
+
+  $scope.typingText = $scope.phrase1;
+
+  /*
+  Evaluates the response from the user and moves to the next question or the end.
+   */
+  $scope.processAnswer = function(){
+    switch($scope.probNum){
+      case 1:
+        if($scope.typingAnswer == $scope.phrase1){
+          $scope.correctAnswers++;
+        }
+        $scope.probNum++;
+        $scope.typingText = $scope.phrase2;
+        $scope.typingAnswer = null;
+        break;
+      case 2:
+        if($scope.typingAnswer == $scope.phrase2){
+          $scope.correctAnswers++;
+        }
+        $scope.probNum++;
+        $scope.typingText = $scope.phrase3;
+        $scope.typingAnswer = null;
+        break;
+      case 3:
+        if($scope.typingAnswer == $scope.phrase3){
+          $scope.correctAnswers++;
+        }
+
+        //TODO
+        //Add scoring/storing, timestamp, connection to use of result
+
+        $scope.probNum = 1;
+        $scope.typingAnswer = null;
+        console.log("User typed " + $scope.correctAnswers + " phrases correctly");
+        $state.go('app.main');
+        break;
+    }
+  }
+});
