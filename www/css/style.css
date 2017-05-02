@@ -12,6 +12,12 @@
 	position: absolute;
 }
 
+#testButton {
+  width: 20%;
+  height: 5%;
+  margin: 10px;
+}
+
 .preferencesList {
 	position: absolute;
 	top: 2%;
@@ -25,5 +31,5 @@
 }
 
 .preferenceItem {
-	
+
 }

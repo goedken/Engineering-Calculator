@@ -6,58 +6,89 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('bouncer', ['ionic', 'starter.controllers'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
+  .run(function($ionicPlatform) {
+    $ionicPlatform.ready(function() {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      if (window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        cordova.plugins.Keyboard.disableScroll(true);
 
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
-
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
-
-    .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
-
-  .state('app.preferences', {
-    url: '/preferences',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/preferences.html'
       }
-    }
-  })
-
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.main', {
-      url: '/main',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/main.html',
-          controller: 'MainCtrl'
-        }
+      if (window.StatusBar) {
+        // org.apache.cordova.statusbar required
+        StatusBar.styleDefault();
       }
     });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/main');
-});
+  })
+
+  .config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+
+      .state('app', {
+        url: '/app',
+        abstract: true,
+        templateUrl: 'templates/menu.html',
+        controller: 'AppCtrl'
+      })
+
+      .state('app.preferences', {
+        url: '/preferences',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/preferences.html'
+          }
+        }
+      })
+
+      .state('app.browse', {
+        url: '/browse',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/browse.html'
+          }
+        }
+      })
+      .state('app.main', {
+        url: '/main',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/main.html',
+            controller: 'MainCtrl'
+          }
+        }
+      })
+
+      .state('app.testConfigure', {
+          url: '/testConfigure',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/testConfigure.html',
+              controller: 'TestCtrl'
+            }
+          }
+        }
+      )
+
+      .state('app.mathTest', {
+        url: '/mathTest',
+       views: {
+          'menuContent':{
+            templateUrl: 'templates/mathTest.html',
+            controller: 'mathTestCtrl'
+          }
+       }
+      })
+
+      .state('app.typingTest', {
+        url: '/typingTest',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/typingTest.html',
+            controller: 'typingTestCtrl'
+          }
+        }
+      });
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/app/main');
+  });
