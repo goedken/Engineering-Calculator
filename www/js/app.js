@@ -31,7 +31,6 @@ angular.module('bouncer', ['ionic', 'starter.controllers'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-
   .state('app.preferences', {
     url: '/preferences',
     views: {
@@ -40,7 +39,6 @@ angular.module('bouncer', ['ionic', 'starter.controllers'])
       }
     }
   })
-
   .state('app.browse', {
       url: '/browse',
       views: {
@@ -48,8 +46,16 @@ angular.module('bouncer', ['ionic', 'starter.controllers'])
           templateUrl: 'templates/browse.html'
         }
       }
-    })
-    .state('app.main', {
+  })
+  .state('app.tests', {
+    url: '/tests',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tests.html'
+      }
+    }
+  })
+  .state('app.main', {
       url: '/main',
       views: {
         'menuContent': {
@@ -57,7 +63,7 @@ angular.module('bouncer', ['ionic', 'starter.controllers'])
           controller: 'MainCtrl'
         }
       }
-    });
+  });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/main');
 });

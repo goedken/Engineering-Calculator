@@ -14,7 +14,7 @@ angular.module('starter.controllers', [])
 //	function onLoad(){
 //		document.addEventListener("deviceready", onDeviceReady, false);
 //	}
-//	
+//
 //	function onDeviceReady(){
 //		document.addEventListener("pause", onPause, false);
 //		document.addEventListener("resume", onResume, false);
@@ -104,11 +104,11 @@ angular.module('starter.controllers', [])
 		$window.localStorage.clear("state");
 		$window.localStorage.clear("zipCode");
 	}
-	
+
 	function onPause(){
 		$ionicLoading.show({ template: 'App in background', noBackdrop: true, duration: 1000 });
 	}
-	
+
 	function onResume(){
 		$ionicLoading.show({ template: 'App in foreground', noBackdrop: true, duration: 1000 });
 	}
@@ -118,7 +118,7 @@ angular.module('starter.controllers', [])
 
 .controller('MainCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window) {
 	$scope.employed;
-	let app;
+	//let app;
 	if($window.localStorage.getItem("employed") == "true"){
 		$scope.employed = true;
 	} else {
