@@ -11,14 +11,14 @@ angular.module('starter.controllers', [])
 	//$scope.$on('$ionicView.enter', function(e) {
 	//});
 
-//	function onLoad(){
-//		document.addEventListener("deviceready", onDeviceReady, false);
-//	}
-//
-//	function onDeviceReady(){
-//		document.addEventListener("pause", onPause, false);
-//		document.addEventListener("resume", onResume, false);
-//	}
+	function onLoad(){
+		document.addEventListener("deviceready", onDeviceReady, false);
+	}
+
+	function onDeviceReady(){
+		document.addEventListener("pause", onPause, false);
+		document.addEventListener("resume", onResume, false);
+	}
 
 	//Load popup window layout from defaultHome.html
 	$ionicModal.fromTemplateUrl('templates/defaultHome.html', {
@@ -104,16 +104,22 @@ angular.module('starter.controllers', [])
 		$window.localStorage.clear("state");
 		$window.localStorage.clear("zipCode");
 	}
-
+	
 	function onPause(){
 		$ionicLoading.show({ template: 'App in background', noBackdrop: true, duration: 1000 });
 	}
-
+	
 	function onResume(){
 		$ionicLoading.show({ template: 'App in foreground', noBackdrop: true, duration: 1000 });
 	}
-	$ionicPlatform.on('pause', onPause());
-	$ionicPlatform.on('resume', onResume());
+	
+//	$ionicPlatform.on('pause', function onPause(){
+//		$ionicLoading.show({ template: 'App in background', noBackdrop: true, duration: 1000 });
+//	});
+//	
+//	$ionicPlatform.on('resume', function onResume(){
+//		$ionicLoading.show({ template: 'App in foreground', noBackdrop: true, duration: 1000 });
+//	});
 })
 
 .controller('MainCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window) {

@@ -31,27 +31,51 @@ angular.module('bouncer', ['ionic', 'starter.controllers'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-  .state('app.preferences', {
-    url: '/preferences',
+  .state('app.civil', {
+    url: '/civil',
     views: {
       'menuContent': {
-        templateUrl: 'templates/preferences.html'
+        templateUrl: 'templates/civil.html'
       }
     }
   })
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.mechanical', {
+      url: '/mechanical',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/mechanical.html'
         }
       }
   })
-  .state('app.tests', {
-    url: '/tests',
+  .state('app.electrical', {
+    url: '/electrical',
     views: {
       'menuContent': {
-        templateUrl: 'templates/tests.html'
+        templateUrl: 'templates/electrical.html'
+      }
+    }
+  })
+  .state('app.chemical', {
+    url: '/chemical',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/chemical.html'
+      }
+    }
+  })
+  .state('app.structural', {
+    url: '/structural',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/structural.html'
+      }
+    }
+  })
+  .state('app.physics', {
+    url: '/physics',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/physics.html'
       }
     }
   })

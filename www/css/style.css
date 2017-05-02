@@ -21,18 +21,18 @@
 	position: absolute;
 }
 
-.preferencesList {
+.equationList {
 	position: absolute;
 	top: 2%;
 	width: 100%;
 }
 
-.preferenceOption {
+.equationOption {
 	position: absolute;
 	right: 3%;
 	font-size: 26px;
 }
 
-.preferenceItem {
+.equationItem {
 	
 }
