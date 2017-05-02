@@ -21,18 +21,26 @@
 	position: absolute;
 }
 
-.equationList {
-	position: absolute;
-	top: 2%;
-	width: 100%;
+.equationListLeft {
+	float: left;
+	width: 40%;
+	margin-left: 5%;
+}
+
+.equationListRight {
+	float: right;
+	width: 40%;
+	margin-right: 5%;
 }
 
 .equationOption {
-	position: absolute;
-	right: 3%;
+	float: right;
+	margin-right: 3%;
 	font-size: 26px;
 }
 
 .equationItem {
-	
+	margin-bottom: 20px;
+	width: 40%;
+	height: 100px;
 }
