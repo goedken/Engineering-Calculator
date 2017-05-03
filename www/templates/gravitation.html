@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Gravitation</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="force" ng-model="value.one" placeholder="Force">
+        </label>
+        <label class="item item-input">
+        <input type="text" name="massOne" ng-model="value.two" placeholder="Mass of First Object">
+      </label>
+        <label class="item item-input">
+          <input type="text" name="masstwo" ng-model="value.three" placeholder="Mass of Second Object">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="radius" ng-model="value.four" placeholder="Radius">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>F = {{returned.one}}</br>M1 = {{returned.two}}</br>M2 = {{returned.three}}</br>
+            r = {{returned.four}}</p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeGravitation()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

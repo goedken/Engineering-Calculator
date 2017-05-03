@@ -43,7 +43,10 @@ angular.module('starter.controllers', [])
 			pvt: "Pressure, Volume, Temperature",
 			weight: "Weight",
       momentum: "Momentum",
-      centAccel: "Centripetal Acceleration"
+      centAccel: "Centripetal Acceleration",
+      gravitation: "Gravitation",
+      potEnergy: "Potential Energy",
+      kinEnergy: "Kinetic Energy"
 	}
 
 	$scope.assignModal = function(event) {
@@ -51,22 +54,31 @@ angular.module('starter.controllers', [])
 		switch(buttonClicked){
 		case ($scope.physics.motion):
 			$scope.template.url = 'templates/motion.html';
-		break;
+		  break;
 		case ($scope.physics.hookesLaw):
 			$scope.template.url = 'templates/hookesLaw.html';
-		break;
+		  break;
 		case ($scope.physics.pvt):
 			$scope.template.url = 'templates/pvt.html';
-		break;
+		  break;
 		case ($scope.physics.weight):
 			$scope.template.url = 'templates/weight.html';
-		break;
+		  break;
 		case ($scope.physics.momentum):
       $scope.template.url = 'templates/momentum.html';
-    break;
+      break;
     case ($scope.physics.centAccel):
       $scope.template.url = 'templates/centAccel.html';
-    break;
+      break;
+    case ($scope.physics.gravitation):
+      $scope.template.url = 'templates/gravitation.html';
+      break;
+    case ($scope.physics.potEnergy):
+      $scope.template.url = 'templates/potEnergy.html';
+      break;
+    case ($scope.physics.kinEnergy):
+      $scope.template.url = 'templates/kinEnergy.html';
+      break;
 		default:
 			break;
 		}
@@ -153,6 +165,31 @@ angular.module('starter.controllers', [])
     var v = $scope.value.two;
     var r = $scope.value.three;
     physFac.centAccel(a,v,r);
+    $scope.returned = physFac.value;
+  }
+  $scope.computeGravitation = function(){
+    $scope.returned.state = "";
+    var f = $scope.value.one;
+    var mOne = $scope.value.two;
+    var mTwo = $scope.value.three;
+    var r = $scope.value.four;
+    physFac.gravitation(f,mOne,mTwo,r);
+    $scope.returned = physFac.value;
+  }
+  $scope.computePotEnergy = function(){
+    $scope.returned.state = "";
+    var p = $scope.value.one;
+    var m = $scope.value.two;
+    var h = $scope.value.three;
+    physFac.potEnergy(p,m,h);
+    $scope.returned = physFac.value;
+  }
+  $scope.computeKinEnergy = function(){
+    $scope.returned.state = "";
+    var k = $scope.value.one;
+    var m = $scope.value.two;
+    var v = $scope.value.three;
+    physFac.kinEnergy(k,m,v);
     $scope.returned = physFac.value;
   }
 })
@@ -278,7 +315,7 @@ angular.module('starter.controllers', [])
       }
     }
     var pvt = function(p,v,n,t){
-      r = 8.3145;
+      var r = 8.3145;
       if (p != "" && v != "" && t != "") {
         value.one = p;
         value.two = v;
@@ -320,6 +357,66 @@ angular.module('starter.controllers', [])
         value.state = "Minimum input required: any two variables";
       }
     }
+    var gravitation = function(f,mOne,mTwo,r){
+      var g = 6.67 * Math.pow(10,-11);
+      if (f != "" && mOne != "" && mTwo != "") {
+        value.one = f;
+        value.two = mOne;
+        value.three = mTwo;
+        value.four = Math.sqrt(g * mOne * mTwo / f);
+      } else if (f != "" && mOne != "" && r != "") {
+        value.one = f;
+        value.two = mOne;
+        value.three = f*r*r/(g*mOne);
+        value.four = r;
+      } else if (f != "" && mTwo != "" && r != "") {
+        value.one = f;
+        value.two = f*r*r/(g*mTwo);
+        value.three = mTwo;
+        value.four = r;
+      } else if (mOne != "" && mTwo != "" && r != "") {
+        value.one = g*mOne*mTwo/(r*r);
+        value.two = mOne;
+        value.three = mTwo;
+        value.four = r;
+      } else {
+        value.state = "Minimum input required: any three variables";
+      }
+    }
+    var potEnergy = function(p,m,h){
+      if (p != "" && m != "") {
+        value.one = p;
+        value.two = m;
+        value.three = p/(m*9.8);
+      } else if (p != "" && h != "") {
+        value.one = p;
+        value.two = p/(h*9.8);
+        value.three = h;
+      } else if (m != "" && h != "") {
+        value.one = m*9.8*h;
+        value.two = m;
+        value.three = h;
+      }else {
+        value.state = "Minimum input required: any two variables";
+      }
+    }
+    var kinEnergy = function(k,m,v){
+      if (k != "" && m != "") {
+        value.one = k;
+        value.two = m;
+        value.three = Math.sqrt(2*k/m);
+      } else if (k != "" && v != "") {
+        value.one = k;
+        value.two = 2*k/(v*v);
+        value.three = v;
+      } else if (m != "" && v != "") {
+        value.one = .5*m*v*v;
+        value.two = m;
+        value.three = v;
+      }else {
+        value.state = "Minimum input required: any two variables";
+      }
+    }
 		return {
 			value: value,
 			lawsOfMotion: lawsOfMotion,
@@ -327,7 +424,10 @@ angular.module('starter.controllers', [])
       hookes: hookes,
       momentum: momentum,
       pvt: pvt,
-      centAccel: centAccel
+      centAccel: centAccel,
+      gravitation: gravitation,
+      potEnergy: potEnergy,
+      kinEnergy: kinEnergy
 		}
 	};
 	return physicsFactory;
