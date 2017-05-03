@@ -403,6 +403,7 @@ angular.module('starter.controllers', [])
       }
     }
     var kinEnergy = function(k,m,v){
+      //calculate kinetic energy
       if (k != "" && m != "") {
         value.one = k;
         value.two = m;
