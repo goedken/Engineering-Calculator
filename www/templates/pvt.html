@@ -1,0 +1,35 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Pressure, Volume, Temperature</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="save()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="streetAddress" ng-model="address.streetAddress" placeholder="Street Address">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="city" ng-model="address.city" placeholder="City">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="state" ng-model="address.state" placeholder="State">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="zipCode" ng-model="address.zipCode" placeholder="Zip Code">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Save</button>
+        </label>
+        <label class="item">
+          <button class="button button-block" type="reset" ng-click="clearAddress()">Clear</button>
+        </label>
+        <label class="item">
+          <button class="button button-block button-assertive" type="reset" ng-click="closeWindow()">Close</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

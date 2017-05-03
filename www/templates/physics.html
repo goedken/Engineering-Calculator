@@ -2,7 +2,7 @@
 <ion-content>
 	<div class="equationListLeft">
 		<label class="equationItem">
-			<button class="button button-large equationItem">equation 1</button> 
+			<button id="ohmsLaw" class="button button-large equationItem" ng-click="assignModal($event)">{{physics.ohmsLaw}}</button> 
 				<select class="equationOption">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -11,15 +11,15 @@
 				</select>
 		</label></br>
 		<label class="equationItem">
-			<button class="button button-large equationItem">equation 2</button>
+			<button id="hookesLaw" class="button button-large equationItem" ng-click="assignModal($event)">{{physics.hookesLaw}}</button>
 		</label></br>
 		<label class="equationItem">
-			<button class="button button-large equationItem">equation 3</button>
+			<button id="pvt" class="button button-large equationItem" ng-click="assignModal($event)">{{physics.pvt}}</button>
 		</label></br>
 	</div>
 	<div class="equationListRight">
 		<label class="equationItem">
-			<button class="button button-large equationItem">equation 1</button> 
+			<button class="button button-large equationItem" ng-click="assignModal($event)">equation 1</button> 
 				<select class="equationOption">
 					<option value="option1">Option 1</option>
 					<option value="option2">Option 2</option>
@@ -28,10 +28,10 @@
 				</select>
 		</label></br>
 		<label class="equationItem">
-			<button class="button button-large equationItem">equation 2</button>
+			<button class="button button-large equationItem" ng-click="assignModal($event)">equation 2</button>
 		</label></br>
 		<label class="equationItem">
-			<button class="button button-large equationItem">equation 3</button>
+			<button class="button button-large equationItem" ng-click="assignModal($event)">equation 3</button>
 		</label></br>
 	</div>
 </ion-content> 

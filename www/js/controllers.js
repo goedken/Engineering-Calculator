@@ -1,9 +1,6 @@
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window, $ionicPlatform) {
-
-
-
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
 	// To listen for when this page is active (for example, to refresh data),
@@ -11,21 +8,59 @@ angular.module('starter.controllers', [])
 	//$scope.$on('$ionicView.enter', function(e) {
 	//});
 
-	function onLoad(){
-		document.addEventListener("deviceready", onDeviceReady, false);
+	$scope.template = {
+			url: ""
+	}
+	$scope.general = {
+			
+	}
+	$scope.civil = {
+			
+	}
+	$scope.mechanical = {
+			
+	}
+	$scope.electrical = {
+			
+	}
+	$scope.chemical = {
+			
+	}
+	$scope.structural = {
+			
+	}
+	$scope.physics = {
+			ohmsLaw: "Ohm's Law",
+			hookesLaw: "Hooke's Law",
+			pvt: "Pressure, Volume, Temperature",
 	}
 
-	function onDeviceReady(){
-		document.addEventListener("pause", onPause, false);
-		document.addEventListener("resume", onResume, false);
+	$scope.assignModal = function(event) {
+		var buttonClicked = document.getElementById(event.target.id).innerHTML;
+		switch(buttonClicked){
+		case ($scope.physics.ohmsLaw):
+			$scope.template.url = 'templates/ohmsLaw.html';
+			break;
+		case ($scope.physics.hookesLaw):
+			$scope.template.url = 'templates/hookesLaw.html';
+			break;
+		case ($scope.physics.pvt):
+			$scope.template.url = 'templates/pvt.html';
+			break;
+		default:
+			break;
+		}
+		//Load popup window layout from defaultHome.html
+		$ionicModal.fromTemplateUrl($scope.template.url, {
+			scope: $scope
+		}).then(function(modal) {
+			$scope.modal = modal;
+		});
+		$timeout(function() {
+			$scope.modal.show();
+		}, 100);
 	}
 
-	//Load popup window layout from defaultHome.html
-	$ionicModal.fromTemplateUrl('templates/defaultHome.html', {
-		scope: $scope
-	}).then(function(modal) {
-		$scope.modal = modal;
-	});
 
 	$scope.address = {
 			streetAddress: "",
@@ -104,22 +139,6 @@ angular.module('starter.controllers', [])
 		$window.localStorage.clear("state");
 		$window.localStorage.clear("zipCode");
 	}
-	
-	function onPause(){
-		$ionicLoading.show({ template: 'App in background', noBackdrop: true, duration: 1000 });
-	}
-	
-	function onResume(){
-		$ionicLoading.show({ template: 'App in foreground', noBackdrop: true, duration: 1000 });
-	}
-	
-//	$ionicPlatform.on('pause', function onPause(){
-//		$ionicLoading.show({ template: 'App in background', noBackdrop: true, duration: 1000 });
-//	});
-//	
-//	$ionicPlatform.on('resume', function onResume(){
-//		$ionicLoading.show({ template: 'App in foreground', noBackdrop: true, duration: 1000 });
-//	});
 })
 
 .controller('MainCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window) {
