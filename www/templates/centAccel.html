@@ -1,0 +1,30 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Centripetal Acceleration</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="acceleration" ng-model="value.one" placeholder="Acceleration">
+        </label>
+        <label class="item item-input">
+        <input type="text" name="velocity" ng-model="value.two" placeholder="Velocity">
+      </label>
+        <label class="item item-input">
+          <input type="text" name="velocity" ng-model="value.three" placeholder="radius">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>a = {{returned.one}}</br>v = {{returned.two}}</br>
+            r = {{returned.three}}</p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeCentAccel()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

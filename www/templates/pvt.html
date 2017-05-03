@@ -9,25 +9,23 @@
     <form ng-submit="save()">
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="streetAddress" ng-model="address.streetAddress" placeholder="Street Address">
+          <input type="text" name="pressure" ng-model="value.one" placeholder="Pressure">
         </label>
         <label class="item item-input">
-          <input type="text" name="city" ng-model="address.city" placeholder="City">
+          <input type="text" name="volume" ng-model="value.two" placeholder="Volume">
         </label>
         <label class="item item-input">
-          <input type="text" name="state" ng-model="address.state" placeholder="State">
+          <input type="text" name="moles" ng-model="value.three" placeholder="Number of Moles">
         </label>
         <label class="item item-input">
-          <input type="text" name="zipCode" ng-model="address.zipCode" placeholder="Zip Code">
+          <input type="text" name="temperature" ng-model="value.four" placeholder="Temperature">
         </label>
         <label class="item">
-          <button class="button button-block button-positive" type="submit">Save</button>
+          <p>{{returned.state}}</br>P = {{returned.one}}</br>V = {{returned.two}}</br>
+            n = {{returned.three}}</br>T = {{returned.four}}</br></p>
         </label>
         <label class="item">
-          <button class="button button-block" type="reset" ng-click="clearAddress()">Clear</button>
-        </label>
-        <label class="item">
-          <button class="button button-block button-assertive" type="reset" ng-click="closeWindow()">Close</button>
+          <button class="button button-block button-positive" ng-click="computePVT()">Compute</button>
         </label>
       </div>
     </form>

@@ -9,25 +9,20 @@
     <form ng-submit="save()">
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="streetAddress" ng-model="address.streetAddress" placeholder="Street Address">
+          <input type="text" name="force" ng-model="value.one" placeholder="Force">
         </label>
         <label class="item item-input">
-          <input type="text" name="city" ng-model="address.city" placeholder="City">
+          <input type="text" name="kConstant" ng-model="value.two" placeholder="K Constant">
         </label>
         <label class="item item-input">
-          <input type="text" name="state" ng-model="address.state" placeholder="State">
-        </label>
-        <label class="item item-input">
-          <input type="text" name="zipCode" ng-model="address.zipCode" placeholder="Zip Code">
+          <input type="text" name="deltaX" ng-model="value.three" placeholder="Delta X">
         </label>
         <label class="item">
-          <button class="button button-block button-positive" type="submit">Save</button>
+          <p>{{returned.state}}</br>F = {{returned.one}}</br>k = {{returned.two}}</br>
+            x = {{returned.three}}</br></p>
         </label>
         <label class="item">
-          <button class="button button-block" type="reset" ng-click="clearAddress()">Clear</button>
-        </label>
-        <label class="item">
-          <button class="button button-block button-assertive" type="reset" ng-click="closeWindow()">Close</button>
+          <button class="button button-block button-positive" ng-click="computeHookes()">Compute</button>
         </label>
       </div>
     </form>
