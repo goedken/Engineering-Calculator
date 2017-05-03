@@ -274,7 +274,9 @@ angular.module('starter.controllers', [])
 		var weight = function(w,m){
       if (m != "") {
         value.one = m * 9.8;
+        value.two = m;
       } else if (w != "") {
+        value.one = w;
         value.two = w / 9.8
       } else {
         value.state = "Minimum input required: one of the variables";
