@@ -24,13 +24,13 @@
 .equationListLeft {
 	float: left;
 	width: 40%;
-	margin-left: 5%;
+	margin-left: 10%;
 }
 
 .equationListRight {
 	float: right;
 	width: 40%;
-	margin-right: 5%;
+	margin-right: 10%;
 }
 
 .equationOption {

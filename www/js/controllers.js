@@ -11,6 +11,13 @@ angular.module('starter.controllers', [])
 	$scope.template = {
 			url: ""
 	}
+	$scope.value = {
+			1: "",
+			2: "",
+			3: "",
+			4: "",
+			5: ""
+	}
 	$scope.general = {
 			
 	}
@@ -61,44 +68,9 @@ angular.module('starter.controllers', [])
 		}, 100);
 	}
 
-
-	$scope.address = {
-			streetAddress: "",
-			city: "",
-			state: "",
-			zipCode: ""
-	}
-
-	if($window.localStorage.getItem("address") == "good"){
-		$scope.address.streetAddress = $window.localStorage.getItem("streetAddress");
-		$scope.address.city = $window.localStorage.getItem("city");
-		$scope.address.state = $window.localStorage.getItem("state");
-		$scope.address.zipCode = $window.localStorage.getItem("zipCode");
-	}
-	else{
-		$scope.address.streetAddress = "";
-		$scope.address.city = "";
-		$scope.address.state = "";
-		$scope.address.zipCode = "";
-		$window.localStorage.setItem("streetAddress", null);
-		$window.localStorage.setItem("city", null);
-		$window.localStorage.setItem("state", null);
-		$window.localStorage.setItem("zipCode", null);
-	}
-	//For debugging purposes
-//	console.log($scope.address.streetAddress);
-//	console.log($scope.address.city);
-//	console.log($scope.address.state);
-//	console.log($scope.address.zipCode);
-
 	//Closes popup
 	$scope.closeWindow = function() {
 		$scope.modal.hide();
-	};
-
-	//Opens popup
-	$scope.defaultHome = function() {
-		$scope.modal.show();
 	};
 
 	//Save user entered data
@@ -119,11 +91,6 @@ angular.module('starter.controllers', [])
 			$window.localStorage.clear("address");
 			$ionicLoading.show({ template: 'Address not completed. Try again.', noBackdrop: true, duration: 2000 });
 		}
-		//For debugging purposes
-//		console.log($scope.address.streetAddress);
-//		console.log($scope.address.city);
-//		console.log($scope.address.state);
-//		console.log($scope.address.zipCode);
 
 		// Simulate a login delay. Remove this and replace with your login
 		// code if using a login system
@@ -131,51 +98,46 @@ angular.module('starter.controllers', [])
 			$scope.closeWindow();
 		}, 1000);
 	};
+})
 
-	$scope.clearAddress = function() {
-		$window.localStorage.clear("address");
-		$window.localStorage.clear("streetAddress");
-		$window.localStorage.clear("city");
-		$window.localStorage.clear("state");
-		$window.localStorage.clear("zipCode");
+.factory('generalFactory', function(){
+	var units = {
+		
 	}
 })
 
-.controller('MainCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window) {
-	$scope.employed;
-	//let app;
-	if($window.localStorage.getItem("employed") == "true"){
-		$scope.employed = true;
-	} else {
-		$scope.employed = false;
+.factory('civilFactory', function(){
+	var units = {
+		
 	}
-	//For debugging purposes
-//	console.log($scope.employed);
-//	console.log($window.localStorage.getItem("employed"));
-	if($scope.employed == false){
-		$scope.buttonText = "Employ Bouncer";
-	} else {
-		$scope.buttonText = "Retire Bouncer";
+})
+
+.factory('mechanicalFactory', function(){
+	var units = {
+		
 	}
-	$scope.employBouncer = function(){
-		if($scope.employed == true){
-			$scope.retireBouncer();
-			$scope.employed = false;
-			$window.localStorage.setItem("employed", $scope.employed);
-			$scope.buttonText = "Employ Bouncer";
-			return;
-		}
+})
 
-		$scope.employed = true;
-		$window.localStorage.setItem("employed", $scope.employed);
-		$scope.buttonText = "Retire Bouncer";
-		$ionicLoading.show({ template: 'Bouncer employed', noBackdrop: true, duration: 1000 });
-		//For debugging purposes
-//		console.log($scope.employed);
-//		console.log($window.localStorage.getItem("employed"));
-	};
+.factory('electricalFactory', function(){
+	var units = {
+		
+	}
+})
 
-	$scope.retireBouncer = function(){
-		$ionicLoading.show({ template: 'Bouncer retired', noBackdrop: true, duration: 1000 });
-	};
+.factory('chemicalFactory', function(){
+	var units = {
+		
+	}
+})
+
+.factory('structuralFactory', function(){
+	var units = {
+		
+	}
+})
+
+.factory('physicsFactory', function(){
+	var units = {
+		
+	}
 });

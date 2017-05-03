@@ -6,19 +6,16 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <form ng-submit="save()">
+    <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="streetAddress" ng-model="address.streetAddress" placeholder="Street Address">
+          <input type="text" name="current" ng-model="value.1" placeholder="Current">
         </label>
         <label class="item item-input">
-          <input type="text" name="city" ng-model="address.city" placeholder="City">
+          <input type="text" name="voltage" ng-model="value.2" placeholder="Voltage">
         </label>
         <label class="item item-input">
-          <input type="text" name="state" ng-model="address.state" placeholder="State">
-        </label>
-        <label class="item item-input">
-          <input type="text" name="zipCode" ng-model="address.zipCode" placeholder="Zip Code">
+          <input type="text" name="resistance" ng-model="value.3" placeholder="Resistance">
         </label>
         <label class="item">
           <button class="button button-block button-positive" type="submit">Save</button>
