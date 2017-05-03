@@ -1,0 +1,23 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Weight</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="mass" ng-model="value.one" placeholder="Mass">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>W = {{returned.one}}</p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeWeight()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,39 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Laws of Motion</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="iPosition" ng-model="value.one" placeholder="Initial Position">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="position" ng-model="value.two" placeholder="Position">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="iVelocity" ng-model="value.three" placeholder="Initial Velocity">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="velocity" ng-model="value.four" placeholder="Velocity">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="acceleration" ng-model="value.five" placeholder="Acceleration">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="time" ng-model="value.six" placeholder="Time">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>Xi = {{returned.one}}</br>X = {{returned.two}}</br>Vi = {{returned.three}}</br>V = {{returned.four}}</br>
+          A = {{returned.five}}</br>t = {{returned.six}}</p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeMotion()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
