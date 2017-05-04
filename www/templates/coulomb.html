@@ -1,0 +1,36 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Coulomb's Law</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="current" ng-model="value.one" placeholder="Force">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="voltage" ng-model="value.two" placeholder="Coulomb's Law Constant">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="charge1" ng-model="value.three" placeholder="Charge 1">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="charge2" ng-model="value.four" placeholder="Charge 2">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="distance" ng-model="value.five" placeholder="Distance">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>F = {{returned.one}}</br>k = {{returned.two}}</br>
+          qi = {{returned.three}}</br>qii = {{returned.four}}</br>r = {{returned.five}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeCoulomb()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

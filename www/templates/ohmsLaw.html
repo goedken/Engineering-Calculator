@@ -1,0 +1,29 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Ohm's Law</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="current" ng-model="value.one" placeholder="Current">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="voltage" ng-model="value.two" placeholder="Voltage">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="resistance" ng-model="value.three" placeholder="Resistance">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>I = {{returned.one}}</br>V = {{returned.two}}</br>R = {{returned.three}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeOhms()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

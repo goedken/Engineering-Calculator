@@ -2,36 +2,24 @@
 <ion-content>
 	<div class="equationListLeft">
 		<label class="equationItem">
-			<button class="button button-large equationItem" ng-click="assignModal($event)">equation 1</button> 
-				<select class="equationOption">
-					<option value="option1">Option 1</option>
-					<option value="option2">Option 2</option>
-					<option value="option3">Option 3</option>
-					<option value="option4">Option 4</option>
-				</select>
+			<button id="ohmsLaw" class="button button-large equationItem" ng-click="assignModal($event)">{{electrical.ohmsLaw}}</button> 
 		</label></br>
 		<label class="equationItem">
-			<button class="button button-large equationItem" ng-click="assignModal($event)">equation 2</button>
+			<button id="coulomb" class="button button-large equationItem" ng-click="assignModal($event)">{{electrical.coulomb}}</button>
 		</label></br>
 		<label class="equationItem">
-			<button class="button button-large equationItem" ng-click="assignModal($event)">equation 3</button>
+			<button id="elecField" class="button button-large equationItem" ng-click="assignModal($event)">{{electrical.elecField}}</button>
 		</label></br>
 	</div>
 	<div class="equationListRight">
 		<label class="equationItem">
-			<button class="button button-large equationItem" ng-click="assignModal($event)">equation 1</button> 
-				<select class="equationOption">
-					<option value="option1">Option 1</option>
-					<option value="option2">Option 2</option>
-					<option value="option3">Option 3</option>
-					<option value="option4">Option 4</option>
-				</select>
+			<button id="elecPot" class="button button-large equationItem" ng-click="assignModal($event)">{{electrical.elecPot}}</button> 
 		</label></br>
 		<label class="equationItem">
-			<button class="button button-large equationItem" ng-click="assignModal($event)">equation 2</button>
+			<button id="elecCurr" class="button button-large equationItem" ng-click="assignModal($event)">{{electrical.elecCurr}}</button>
 		</label></br>
 		<label class="equationItem">
-			<button class="button button-large equationItem" ng-click="assignModal($event)">equation 3</button>
+			<button id="power" class="button button-large equationItem" ng-click="assignModal($event)">{{electrical.power}}</button>
 		</label></br>
 	</div>
 </ion-content> 

@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Electric Potential</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="force" ng-model="value.one" placeholder="Force">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="k" ng-model="value.two" placeholder="Coulomb's Law Constant">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="charge" ng-model="value.three" placeholder="Charge">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="distance" ng-model="value.four" placeholder="Distance">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>F = {{returned.one}}</br>k = {{returned.two}}</br>
+          qi = {{returned.three}}</br>r = {{returned.four}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeElecPot()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
