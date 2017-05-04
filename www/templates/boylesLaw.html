@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Boyle's Law</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="pressure1" ng-model="value.one" placeholder="Pressure 1">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="volume1" ng-model="value.two" placeholder="Volume 1">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="pressure2" ng-model="value.three" placeholder="Pressure 2">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="volume2" ng-model="value.four" placeholder="Volume 2">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>P1 = {{returned.one}}</br>V1 = {{returned.two}}</br>P2 = {{returned.three}}</br>
+            V2 = {{returned.four}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeBoyles()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
