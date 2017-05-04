@@ -1,0 +1,30 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Flow Rate</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="save()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="flowRate" ng-model="value.one" placeholder="Flow Rate">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="flowArea" ng-model="value.two" placeholder="Flow Area">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="flowVelocity" ng-model="value.three" placeholder="Flow Velocity">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>Flow Rate = {{returned.one}}</br>Flow Area = {{returned.two}}</br>
+            Flow Velocity = {{returned.three}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeFlowRate()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

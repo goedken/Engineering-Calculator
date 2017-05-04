@@ -1,0 +1,30 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Stress</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="save()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="stess" ng-model="value.one" placeholder="Stress">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="Force" ng-model="value.two" placeholder="Force">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="Area" ng-model="value.three" placeholder="Area">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>Stress = {{returned.one}}</br>Force = {{returned.two}}</br>
+            Area = {{returned.three}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeStress()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
