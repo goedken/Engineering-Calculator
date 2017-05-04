@@ -507,9 +507,9 @@ angular.module('starter.controllers', [])
 
 		var feetMeters = function(ft, m){
 			if(ft == "") {
-				ft = 0.3048 * m;
+				ft = 3.28084 * m;
 			} else if (m == "") {
-				m = 3.28084 * ft;
+				m = 0.3048 * ft;
 			} else {
 				value.state = "Must only fill in one variable";
 			}
