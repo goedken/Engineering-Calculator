@@ -31,14 +31,14 @@ angular.module('bouncer', ['ionic', 'starter.controllers'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-  .state('app.civil', {
-    url: '/civil',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/civil.html'
-      }
-    }
-  })
+//  .state('app.civil', {
+//    url: '/civil',
+//    views: {
+//      'menuContent': {
+//        templateUrl: 'templates/civil.html'
+//      }
+//    }
+//  })
   .state('app.mechanical', {
       url: '/mechanical',
       views: {
@@ -63,14 +63,14 @@ angular.module('bouncer', ['ionic', 'starter.controllers'])
       }
     }
   })
-  .state('app.structural', {
-    url: '/structural',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/structural.html'
-      }
-    }
-  })
+//  .state('app.structural', {
+//    url: '/structural',
+//    views: {
+//      'menuContent': {
+//        templateUrl: 'templates/structural.html'
+//      }
+//    }
+//  })
   .state('app.physics', {
     url: '/physics',
     views: {

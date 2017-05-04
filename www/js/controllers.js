@@ -71,89 +71,89 @@ angular.module('starter.controllers', [])
 		var buttonClicked = document.getElementById(event.target.id).innerHTML;
 		switch(buttonClicked){
 		case ($scope.physics.motion):
-			$scope.template.url = 'templates/motion.html';
-		  break;
+			$scope.template.url = 'templates/modals/motion.html';
+		break;
 		case ($scope.physics.hookesLaw):
-			$scope.template.url = 'templates/hookesLaw.html';
-		  break;
+			$scope.template.url = 'templates/modals/hookesLaw.html';
+		break;
 		case ($scope.physics.pvt):
-			$scope.template.url = 'templates/pvt.html';
-		  break;
+			$scope.template.url = 'templates/modals/pvt.html';
+		break;
 		case ($scope.physics.weight):
-			$scope.template.url = 'templates/weight.html';
-		  break;
+			$scope.template.url = 'templates/modals/weight.html';
+		break;
 		case ($scope.physics.momentum):
-			$scope.template.url = 'templates/momentum.html';
-		  break;
+			$scope.template.url = 'templates/modals/momentum.html';
+		break;
 		case ($scope.physics.centAccel):
-			$scope.template.url = 'templates/centAccel.html';
-		  break;
+			$scope.template.url = 'templates/modals/centAccel.html';
+		break;
 		case ($scope.physics.gravitation):
-			$scope.template.url = 'templates/gravitation.html';
-		  break;
+			$scope.template.url = 'templates/modals/gravitation.html';
+		break;
 		case ($scope.physics.potEnergy):
-			$scope.template.url = 'templates/potEnergy.html';
-		  break;
+			$scope.template.url = 'templates/modals/potEnergy.html';
+		break;
 		case ($scope.physics.kinEnergy):
-			$scope.template.url = 'templates/kinEnergy.html';
-		  break;
+			$scope.template.url = 'templates/modals/kinEnergy.html';
+		break;
 		case ($scope.electrical.ohmsLaw):
-			$scope.template.url = 'templates/ohmsLaw.html';
-		  break;
+			$scope.template.url = 'templates/modals/ohmsLaw.html';
+		break;
 		case ($scope.electrical.coulomb):
-			$scope.template.url = 'templates/coulomb.html';
-		  break;
+			$scope.template.url = 'templates/modals/coulomb.html';
+		break;
 		case ($scope.electrical.elecField):
-			$scope.template.url = 'templates/elecField.html';
-		  break;
+			$scope.template.url = 'templates/modals/elecField.html';
+		break;
 		case ($scope.electrical.elecPot):
-			$scope.template.url = 'templates/elecPot.html';
-		  break;
+			$scope.template.url = 'templates/modals/elecPot.html';
+		break;
 		case ($scope.electrical.elecCurr):
-			$scope.template.url = 'templates/elecCurr.html';
-		  break;
+			$scope.template.url = 'templates/modals/elecCurr.html';
+		break;
 		case ($scope.electrical.power):
-			$scope.template.url = 'templates/power.html';
-		  break;
-    case ($scope.mechanical.soundVelocity):
-      $scope.template.url = 'templates/soundVelocity.html';
-      break;
-    case ($scope.mechanical.stress):
-      $scope.template.url = 'templates/stress.html';
-      break;
-    case ($scope.mechanical.strain):
-      $scope.template.url = 'templates/strain.html';
-      break;
-    case ($scope.mechanical.flowRate):
-      $scope.template.url = 'templates/flowRate.html';
-      break;
-    case ($scope.mechanical.torque):
-      $scope.template.url = 'templates/torque.html';
-      break;
-    case ($scope.mechanical.cantileverBeam):
-      $scope.template.url = 'templates/cantileverBeam.html';
-      break;
-    case ($scope.chemical.boyles):
-      $scope.template.url = 'templates/boylesLaw.html';
-      break;
-    case ($scope.chemical.charles):
-      $scope.template.url = 'templates/charlesLaw.html';
-      break;
-    case ($scope.chemical.stp):
-      $scope.template.url = 'templates/stp.html';
-      break;
-    case ($scope.chemical.halfLife):
-      $scope.template.url = 'templates/halflife.html';
-      break;
-    case ($scope.chemical.gayLussacs):
-      $scope.template.url = 'templates/gayLussacs.html';
-      break;
-    case ($scope.chemical.combinedGas):
-      $scope.template.url = 'templates/combinedGasLaw.html';
-      break;
-    case ($scope.chemical.soudersBrown):
-      $scope.template.url = 'templates/soudersBrown.html';
-      break;
+			$scope.template.url = 'templates/modals/power.html';
+		break;
+		case ($scope.mechanical.soundVelocity):
+			$scope.template.url = 'templates/modals/soundVelocity.html';
+		break;
+		case ($scope.mechanical.stress):
+			$scope.template.url = 'templates/modals/stress.html';
+		break;
+		case ($scope.mechanical.strain):
+			$scope.template.url = 'templates/modals/strain.html';
+		break;
+		case ($scope.mechanical.flowRate):
+			$scope.template.url = 'templates/modals/flowRate.html';
+		break;
+		case ($scope.mechanical.torque):
+			$scope.template.url = 'templates/modals/torque.html';
+		break;
+		case ($scope.mechanical.cantileverBeam):
+			$scope.template.url = 'templates/modals/cantileverBeam.html';
+		break;
+		case ($scope.chemical.boyles):
+			$scope.template.url = 'templates/modals/boylesLaw.html';
+		break;
+		case ($scope.chemical.charles):
+			$scope.template.url = 'templates/modals/charlesLaw.html';
+		break;
+		case ($scope.chemical.stp):
+			$scope.template.url = 'templates/modals/stp.html';
+		break;
+		case ($scope.chemical.halfLife):
+			$scope.template.url = 'templates/modals/halflife.html';
+		break;
+		case ($scope.chemical.gayLussacs):
+			$scope.template.url = 'templates/modals/gayLussacs.html';
+		break;
+		case ($scope.chemical.combinedGas):
+			$scope.template.url = 'templates/modals/combinedGasLaw.html';
+		break;
+		case ($scope.chemical.soudersBrown):
+			$scope.template.url = 'templates/modals/soudersBrown.html';
+		break;
 		default:
 			break;
 		}
