@@ -1,25 +1,4 @@
-@media ( min-width: 480px ) and ( max-width : 1080px) {
-	#employBouncer {
-		font-size: 72px;
-	}
-}
 
-@media ( min-width: 1080px ) and ( max-width : 1440px) {
-	#employBouncer {
-		font-size: 84px;
-	}
-}
-
-#employBouncer {
-	font-weight: bold;
-	height: 100px;
-	width: 62%;
-	max-width: 100%;
-	border-radius: 25px;
-	left: 19.3%;
-	top: 69.5%;
-	position: absolute;
-}
 
 .equationListLeft {
 	float: left;
@@ -40,6 +19,8 @@
 }
 
 .equationItem {
+	font-size: 16px;
+	word-break: keep-all;
 	margin-top: 20px;
 	line-height: 90%;
 	width: 100%;
