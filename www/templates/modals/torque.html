@@ -9,17 +9,19 @@
     <form ng-submit="save()">
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="torque" ng-model="value.one" placeholder="Torque">
+          <input type="text" name="torque" ng-model="value.one" placeholder="Torque (N * m)">
         </label>
         <label class="item item-input">
-          <input type="text" name="force" ng-model="value.two" placeholder="Force">
+          <input type="text" name="force" ng-model="value.two" placeholder="Force (N)">
         </label>
         <label class="item item-input">
-          <input type="text" name="distance" ng-model="value.three" placeholder="Distance">
+          <input type="text" name="distance" ng-model="value.three" placeholder="Distance (m)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>Torque = {{returned.one}}</br>Force = {{returned.two}}</br>
-            Distance = {{returned.three}}</br></p>
+          <p>{{returned.state}}</br>
+          Torque = {{returned.one}}<span ng-if="returned.one"> N * m</span></br>
+          Force = {{returned.two}}<span ng-if="returned.two"> N</span></br>
+          Distance = {{returned.three}}<span ng-if="returned.three"> m</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeTorque()">Compute</button>

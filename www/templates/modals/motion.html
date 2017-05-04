@@ -9,26 +9,31 @@
     <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="iPosition" ng-model="value.one" placeholder="Initial Position">
+          <input type="text" name="iPosition" ng-model="value.one" placeholder="Initial Position (m)">
         </label>
         <label class="item item-input">
-          <input type="text" name="position" ng-model="value.two" placeholder="Position">
+          <input type="text" name="position" ng-model="value.two" placeholder="Position (m)">
         </label>
         <label class="item item-input">
-          <input type="text" name="iVelocity" ng-model="value.three" placeholder="Initial Velocity">
+          <input type="text" name="iVelocity" ng-model="value.three" placeholder="Initial Velocity (m / s)">
         </label>
         <label class="item item-input">
-          <input type="text" name="velocity" ng-model="value.four" placeholder="Velocity">
+          <input type="text" name="velocity" ng-model="value.four" placeholder="Velocity (m / s)">
         </label>
         <label class="item item-input">
-          <input type="text" name="acceleration" ng-model="value.five" placeholder="Acceleration">
+          <input type="text" name="acceleration" ng-model="value.five" placeholder="Acceleration (m / s^2)">
         </label>
         <label class="item item-input">
-          <input type="text" name="time" ng-model="value.six" placeholder="Time">
+          <input type="text" name="time" ng-model="value.six" placeholder="Time (s)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>Xi = {{returned.one}}</br>X = {{returned.two}}</br>Vi = {{returned.three}}</br>V = {{returned.four}}</br>
-          A = {{returned.five}}</br>t = {{returned.six}}</p>
+          <p>{{returned.state}}</br>
+          Xi = {{returned.one}}<span ng-if="returned.one"> m</span></br>
+          X = {{returned.two}}<span ng-if="returned.two"> m</span></br>
+          Vi = {{returned.three}}<span ng-if="returned.three"> m / s</span></br>
+          V = {{returned.four}}<span ng-if="returned.four"> m / s</span></br>
+          A = {{returned.five}}<span ng-if="returned.five"> m / s^2</span></br>
+          t = {{returned.six}}<span ng-if="returned.six"> s</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeMotion()">Compute</button>

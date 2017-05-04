@@ -9,20 +9,23 @@
     <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="force" ng-model="value.one" placeholder="Force">
+          <input type="text" name="force" ng-model="value.one" placeholder="Force (N)">
         </label>
         <label class="item item-input">
-        <input type="text" name="massOne" ng-model="value.two" placeholder="Mass of First Object">
+        <input type="text" name="massOne" ng-model="value.two" placeholder="Mass of First Object (kg)">
       </label>
         <label class="item item-input">
-          <input type="text" name="masstwo" ng-model="value.three" placeholder="Mass of Second Object">
+          <input type="text" name="masstwo" ng-model="value.three" placeholder="Mass of Second Object (kg)">
         </label>
         <label class="item item-input">
-          <input type="text" name="radius" ng-model="value.four" placeholder="Radius">
+          <input type="text" name="radius" ng-model="value.four" placeholder="Radius (m)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>F = {{returned.one}}</br>M1 = {{returned.two}}</br>M2 = {{returned.three}}</br>
-            r = {{returned.four}}</p>
+          <p>{{returned.state}}</br>
+          F = {{returned.one}}<span ng-if="returned.one"> N</span></br>
+          M1 = {{returned.two}}<span ng-if="returned.two"> kg</span></br>
+          M2 = {{returned.three}}<span ng-if="returned.three"> kg</span></br>
+          r = {{returned.four}}<span ng-if="returned.four"> m</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeGravitation()">Compute</button>

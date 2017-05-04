@@ -9,10 +9,10 @@
     <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="halflife" ng-model="value.one" placeholder="Half Life">
+          <input type="text" name="halflife" ng-model="value.one" placeholder="Half Life (s)">
         </label>
         <label class="item item-input">
-          <input type="text" name="elapsedtime" ng-model="value.two" placeholder="Elapsed Time">
+          <input type="text" name="elapsedtime" ng-model="value.two" placeholder="Elapsed Time (s)">
         </label>
         <label class="item item-input">
           <input type="text" name="beginningamount" ng-model="value.three" placeholder="Beginning Amount">
@@ -21,8 +21,11 @@
           <input type="text" name="endingamount" ng-model="value.four" placeholder="Ending Amount">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>T 1/2 = {{returned.one}}</br>T = {{returned.two}}</br>AmtB = {{returned.three}}</br>
-            AmtE = {{returned.four}}</br></p>
+          <p>{{returned.state}}</br>
+          T 1/2 = {{returned.one}}<span ng-if="returned.one"> s</span></br>
+          T = {{returned.two}}<span ng-if="returned.two"> s</span></br>
+          AmtB = {{returned.three}}</br>
+          AmtE = {{returned.four}}</p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeHalfLife()">Compute</button>

@@ -9,20 +9,23 @@
     <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="power" ng-model="value.one" placeholder="Power">
+          <input type="text" name="power" ng-model="value.one" placeholder="Power (W)">
         </label>
         <label class="item item-input">
-          <input type="text" name="voltage" ng-model="value.two" placeholder="Voltage">
+          <input type="text" name="voltage" ng-model="value.two" placeholder="Voltage (V)">
         </label>
         <label class="item item-input">
-          <input type="text" name="current" ng-model="value.three" placeholder="Current">
+          <input type="text" name="current" ng-model="value.three" placeholder="Current (A)">
         </label>
         <label class="item item-input">
-          <input type="text" name="resistance" ng-model="value.four" placeholder="Resistance">
+          <input type="text" name="resistance" ng-model="value.four" placeholder="Resistance (Ohms)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>P = {{returned.one}}</br>V = {{returned.two}}</br>
-          I = {{returned.three}}</br>R = {{returned.four}}</br></p>
+          <p>{{returned.state}}</br>
+          P = {{returned.one}}<span ng-if="returned.one"> W</span></br>
+          V = {{returned.two}}<span ng-if="returned.two"> V</span></br>
+          I = {{returned.three}}<span ng-if="returned.three"> A</span></br>
+          R = {{returned.four}}<span ng-if="returned.four"> Ohms</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computePower()">Compute</button>

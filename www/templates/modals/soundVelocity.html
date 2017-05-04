@@ -9,20 +9,23 @@
     <form ng-submit="save()">
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="velocity" ng-model="value.one" placeholder="Velocity">
+          <input type="text" name="velocity" ng-model="value.one" placeholder="Velocity (m / s)">
         </label>
         <label class="item item-input">
-          <input type="text" name="temperature" ng-model="value.two" placeholder="Temperature">
+          <input type="text" name="temperature" ng-model="value.two" placeholder="Temperature (K)">
         </label>
         <label class="item item-input">
           <input type="text" name="gamma" ng-model="value.three" placeholder="Gamma">
         </label>
         <label class="item item-input">
-          <input type="text" name="gasConstant" ng-model="value.four" placeholder="Gas Constant">
+          <input type="text" name="gasConstant" ng-model="value.four" placeholder="Gas Constant (J / (kg * K))">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>Velocity = {{returned.one}}</br>Temperature = {{returned.two}}</br>
-            Gamma = {{returned.three}}</br>Gas Constant = {{returned.four}}</br></p>
+          <p>{{returned.state}}</br>
+          Velocity = {{returned.one}}<span ng-if="returned.one"> m / s</span></br>
+          Temperature = {{returned.two}}<span ng-if="returned.two"> K</span></br>
+          Gamma = {{returned.three}}</br>
+          Gas Constant = {{returned.four}}<span ng-if="returned.four"> J / (kg * K)</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeSoundVelocity()">Compute</button>

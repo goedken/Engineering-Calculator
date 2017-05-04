@@ -12,14 +12,15 @@
           <input type="text" name="volume" ng-model="value.one" placeholder="Volume (Liters)">
         </label>
         <label class="item item-input">
-          <input type="text" name="temperature" ng-model="value.two" placeholder="Temperature (Kelvin)">
+          <input type="text" name="temperature" ng-model="value.two" placeholder="Temperature (K)">
         </label>
         <label class="item item-input">
           <input type="text" name="pressure" ng-model="value.three" placeholder="Pressure (Torr)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>Volume at STP = {{returned.one}} <span ng-if="returned.one">Liters</span></br>
-            Moles at STP = {{returned.two}} <span ng-if="returned.two">moles</span></br></p>
+          <p>{{returned.state}}</br>
+          Volume at STP = {{returned.one}} <span ng-if="returned.one">Liters</span></br>
+          Moles at STP = {{returned.two}} <span ng-if="returned.two">moles</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeSTP()">Compute</button>

@@ -9,17 +9,19 @@
     <form ng-submit="save()">
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="strain" ng-model="value.one" placeholder="Strain">
+          <input type="text" name="strain" ng-model="value.one" placeholder="Strain (0-1)">
         </label>
         <label class="item item-input">
-          <input type="text" name="changeInLength" ng-model="value.two" placeholder="Change in Length">
+          <input type="text" name="changeInLength" ng-model="value.two" placeholder="Change in Length (m)">
         </label>
         <label class="item item-input">
-          <input type="text" name="originalLength" ng-model="value.three" placeholder="Original Length">
+          <input type="text" name="originalLength" ng-model="value.three" placeholder="Original Length (m)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>Strain = {{returned.one}}</br>Change in Length = {{returned.two}}</br>
-            Original Length = {{returned.three}}</br></p>
+          <p>{{returned.state}}</br>
+          Strain = {{returned.one}}</br>
+          Change in Length = {{returned.two}}<span ng-if="returned.two"> m</span></br>
+          Original Length = {{returned.three}}<span ng-if="returned.three"> m</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeStrain()">Compute</button>

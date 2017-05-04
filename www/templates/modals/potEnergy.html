@@ -9,17 +9,19 @@
     <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="potEnergy" ng-model="value.one" placeholder="Potential Energy">
+          <input type="text" name="potEnergy" ng-model="value.one" placeholder="Potential Energy (J)">
         </label>
         <label class="item item-input">
-        <input type="text" name="mass" ng-model="value.two" placeholder="Mass">
+        <input type="text" name="mass" ng-model="value.two" placeholder="Mass (kg)">
       </label>
         <label class="item item-input">
-          <input type="text" name="height" ng-model="value.three" placeholder="Height">
+          <input type="text" name="height" ng-model="value.three" placeholder="Height (m)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>P = {{returned.one}}</br>m = {{returned.two}}</br>
-            h = {{returned.three}}</p>
+          <p>{{returned.state}}</br>
+          PE = {{returned.one}}<span ng-if="returned.one"> J</span></br>
+          m = {{returned.two}}<span ng-if="returned.two"> kg</span></br>
+          h = {{returned.three}}<span ng-if="returned.three"> m</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computePotEnergy()">Compute</button>

@@ -9,16 +9,19 @@
     <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="momentum" ng-model="value.one" placeholder="Momentum">
+          <input type="text" name="momentum" ng-model="value.one" placeholder="Momentum (kg * m / s)">
         </label>
         <label class="item item-input">
-        <input type="text" name="mass" ng-model="value.two" placeholder="Mass">
+        <input type="text" name="mass" ng-model="value.two" placeholder="Mass (kg)">
       </label>
         <label class="item item-input">
-          <input type="text" name="velocity" ng-model="value.three" placeholder="Velocity">
+          <input type="text" name="velocity" ng-model="value.three" placeholder="Velocity (m / s)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>p = {{returned.one}}</br>m = {{returned.two}}</br>v = {{returned.three}}</br></p>
+          <p>{{returned.state}}</br>
+          p = {{returned.one}}<span ng-if="returned.one"> kg * m / s</span></br>
+          m = {{returned.two}}<span ng-if="returned.two"> kg</span></br>
+          v = {{returned.three}}<span ng-if="returned.three"> m / s</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeMomentum()">Compute</button>

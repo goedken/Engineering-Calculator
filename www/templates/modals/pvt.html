@@ -9,20 +9,23 @@
     <form ng-submit="save()">
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="pressure" ng-model="value.one" placeholder="Pressure">
+          <input type="text" name="pressure" ng-model="value.one" placeholder="Pressure (atm)">
         </label>
         <label class="item item-input">
-          <input type="text" name="volume" ng-model="value.two" placeholder="Volume">
+          <input type="text" name="volume" ng-model="value.two" placeholder="Volume (Liters)">
         </label>
         <label class="item item-input">
-          <input type="text" name="moles" ng-model="value.three" placeholder="Number of Moles">
+          <input type="text" name="moles" ng-model="value.three" placeholder="Number of Moles (moles)">
         </label>
         <label class="item item-input">
-          <input type="text" name="temperature" ng-model="value.four" placeholder="Temperature">
+          <input type="text" name="temperature" ng-model="value.four" placeholder="Temperature (K)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>P = {{returned.one}}</br>V = {{returned.two}}</br>
-            n = {{returned.three}}</br>T = {{returned.four}}</br></p>
+          <p>{{returned.state}}</br>
+          P = {{returned.one}}<span ng-if="returned.one"> atm</span></br>
+          V = {{returned.two}}<span ng-if="returned.two"> L</span></br>
+          n = {{returned.three}}<span ng-if="returned.three"> moles</span></br>
+          T = {{returned.four}}<span ng-if="returned.four"> K</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computePVT()">Compute</button>

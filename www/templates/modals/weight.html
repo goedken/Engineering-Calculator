@@ -9,13 +9,15 @@
     <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="weight" ng-model="value.one" placeholder="Weight">
+          <input type="text" name="weight" ng-model="value.one" placeholder="Weight (N)">
         </label>
         <label class="item item-input">
-          <input type="text" name="mass" ng-model="value.two" placeholder="Mass">
+          <input type="text" name="mass" ng-model="value.two" placeholder="Mass (kg)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>W = {{returned.one}}</br>m = {{returned.two}}</p>
+          <p>{{returned.state}}</br>
+          W = {{returned.one}}<span ng-if="returned.one"> N</span></br>
+          m = {{returned.two}}<span ng-if="returned.two"> kg</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeWeight()">Compute</button>

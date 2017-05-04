@@ -9,16 +9,17 @@
     <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="liquiddensity" ng-model="value.one" placeholder="Liquid Density (Kg / M^3)">
+          <input type="text" name="liquiddensity" ng-model="value.one" placeholder="Liquid Density (kg / m^3)">
         </label>
         <label class="item item-input">
-          <input type="text" name="vapordensity" ng-model="value.two" placeholder="Vapor Density (Kg / m^3)">
+          <input type="text" name="vapordensity" ng-model="value.two" placeholder="Vapor Density (kg / m^3)">
         </label>
         <label class="item item-input">
           <input type="text" name="vaporvelo" ng-model="value.three" placeholder="Vapor Velocity Factor (m / s)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>Maximum Allowable Vapor Velocity = {{returned.one}} <span ng-if="returned.one">m / s</span></p>
+          <p>{{returned.state}}</br>
+          Maximum Allowable Vapor Velocity = {{returned.one}}<span ng-if="returned.one"> m / s</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeSoudersBrown()">Compute</button>
