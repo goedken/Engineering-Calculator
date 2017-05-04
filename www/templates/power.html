@@ -1,31 +1,31 @@
 <ion-modal-view>
   <ion-header-bar>
-    <h1 class="title">Pressure, Volume, Temperature</h1>
+    <h1 class="title">Electric Power</h1>
     <div class="buttons">
       <button class="button button-clear" ng-click="closeWindow()">Close</button>
     </div>
   </ion-header-bar>
   <ion-content>
-    <form ng-submit="save()">
+    <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="pressure" ng-model="value.one" placeholder="Pressure">
+          <input type="text" name="power" ng-model="value.one" placeholder="Power">
         </label>
         <label class="item item-input">
-          <input type="text" name="volume" ng-model="value.two" placeholder="Volume">
+          <input type="text" name="voltage" ng-model="value.two" placeholder="Voltage">
         </label>
         <label class="item item-input">
-          <input type="text" name="moles" ng-model="value.three" placeholder="Number of Moles">
+          <input type="text" name="current" ng-model="value.three" placeholder="Current">
         </label>
         <label class="item item-input">
-          <input type="text" name="temperature" ng-model="value.four" placeholder="Temperature">
+          <input type="text" name="resistance" ng-model="value.four" placeholder="Resistance">
         </label>
         <label class="item">
           <p>{{returned.state}}</br>P = {{returned.one}}</br>V = {{returned.two}}</br>
-            n = {{returned.three}}</br>T = {{returned.four}}</br></p>
+          I = {{returned.three}}</br>R = {{returned.four}}</br></p>
         </label>
         <label class="item">
-          <button class="button button-block button-positive" ng-click="computePVT()">Compute</button>
+          <button class="button button-block button-positive" ng-click="computePower()">Compute</button>
         </label>
         <label class="item">
           <button class="button button-block button-assertive" ng-click="closeWindow()">Close</button>

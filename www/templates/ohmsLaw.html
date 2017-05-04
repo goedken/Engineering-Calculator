@@ -1,6 +1,6 @@
 <ion-modal-view>
   <ion-header-bar>
-    <h1 class="title">Potential Energy</h1>
+    <h1 class="title">Ohm's Law</h1>
     <div class="buttons">
       <button class="button button-clear" ng-click="closeWindow()">Close</button>
     </div>
@@ -9,20 +9,19 @@
     <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="potEnergy" ng-model="value.one" placeholder="Potential Energy">
+          <input type="text" name="current" ng-model="value.one" placeholder="Current">
         </label>
         <label class="item item-input">
-        <input type="text" name="mass" ng-model="value.two" placeholder="Mass">
-      </label>
+          <input type="text" name="voltage" ng-model="value.two" placeholder="Voltage">
+        </label>
         <label class="item item-input">
-          <input type="text" name="height" ng-model="value.three" placeholder="Height">
+          <input type="text" name="resistance" ng-model="value.three" placeholder="Resistance">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>P = {{returned.one}}</br>m = {{returned.two}}</br>
-            h = {{returned.three}}</p>
+          <p>{{returned.state}}</br>I = {{returned.one}}</br>V = {{returned.two}}</br>R = {{returned.three}}</br></p>
         </label>
         <label class="item">
-          <button class="button button-block button-positive" ng-click="computePotEnergy()">Compute</button>
+          <button class="button button-block button-positive" ng-click="computeOhms()">Compute</button>
         </label>
         <label class="item">
           <button class="button button-block button-assertive" ng-click="closeWindow()">Close</button>
