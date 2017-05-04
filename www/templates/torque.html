@@ -1,0 +1,30 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Torque</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="save()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="torque" ng-model="value.one" placeholder="Torque">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="force" ng-model="value.two" placeholder="Force">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="distance" ng-model="value.three" placeholder="Distance">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>Torque = {{returned.one}}</br>Force = {{returned.two}}</br>
+            Distance = {{returned.three}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeTorque()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
