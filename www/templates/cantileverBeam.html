@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Cantilever Beam</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="save()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="stiffness" ng-model="value.one" placeholder="Stiffness">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="youngsModulus" ng-model="value.two" placeholder="Youngs Modulus">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="inertia" ng-model="value.three" placeholder="Area Moment of Inertia">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="length" ng-model="value.four" placeholder="Length">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>Stiffness = {{returned.one}}</br>Youngs Modulus = {{returned.two}}</br>
+            Area Moment of Inertia = {{returned.three}}</br>Length = {{returned.four}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeCantilever()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

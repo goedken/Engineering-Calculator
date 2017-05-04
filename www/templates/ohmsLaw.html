@@ -1,28 +1,27 @@
 <ion-modal-view>
   <ion-header-bar>
-    <h1 class="title">Hooke's Law</h1>
+    <h1 class="title">Ohm's Law</h1>
     <div class="buttons">
       <button class="button button-clear" ng-click="closeWindow()">Close</button>
     </div>
   </ion-header-bar>
   <ion-content>
-    <form ng-submit="save()">
+    <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="force" ng-model="value.one" placeholder="Force">
+          <input type="text" name="current" ng-model="value.one" placeholder="Current">
         </label>
         <label class="item item-input">
-          <input type="text" name="kConstant" ng-model="value.two" placeholder="K Constant">
+          <input type="text" name="voltage" ng-model="value.two" placeholder="Voltage">
         </label>
         <label class="item item-input">
-          <input type="text" name="deltaX" ng-model="value.three" placeholder="Delta X">
+          <input type="text" name="resistance" ng-model="value.three" placeholder="Resistance">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>F = {{returned.one}}</br>k = {{returned.two}}</br>
-            x = {{returned.three}}</br></p>
+          <p>{{returned.state}}</br>I = {{returned.one}}</br>V = {{returned.two}}</br>R = {{returned.three}}</br></p>
         </label>
         <label class="item">
-          <button class="button button-block button-positive" ng-click="computeHookes()">Compute</button>
+          <button class="button button-block button-positive" ng-click="computeOhms()">Compute</button>
         </label>
         <label class="item">
           <button class="button button-block button-assertive" ng-click="closeWindow()">Close</button>

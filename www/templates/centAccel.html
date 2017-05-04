@@ -15,7 +15,7 @@
         <input type="text" name="velocity" ng-model="value.two" placeholder="Velocity">
       </label>
         <label class="item item-input">
-          <input type="text" name="velocity" ng-model="value.three" placeholder="radius">
+          <input type="text" name="radius" ng-model="value.three" placeholder="radius">
         </label>
         <label class="item">
           <p>{{returned.state}}</br>a = {{returned.one}}</br>v = {{returned.two}}</br>
@@ -23,6 +23,9 @@
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeCentAccel()">Compute</button>
+        </label>
+        <label class="item">
+          <button class="button button-block button-assertive" ng-click="closeWindow()">Close</button>
         </label>
       </div>
     </form>

@@ -1,38 +1,26 @@
-<ion-view view-title="Mechanical Engineering Equations"> 
-<ion-content>
-	<div class="equationListLeft">
-		<label class="equationItem">
-			<button class="button button-large equationItem">equation 1</button> 
-				<select class="equationOption">
-					<option value="option1">Option 1</option>
-					<option value="option2">Option 2</option>
-					<option value="option3">Option 3</option>
-					<option value="option4">Option 4</option>
-				</select>
-		</label></br>
-		<label class="equationItem">
-			<button class="button button-large equationItem">equation 2</button>
-		</label></br>
-		<label class="equationItem">
-			<button class="button button-large equationItem">equation 3</button>
-		</label></br>
-	</div>
-	<div class="equationListRight">
-		<label class="equationItem">
-			<button class="button button-large equationItem">equation 1</button> 
-				<select class="equationOption">
-					<option value="option1">Option 1</option>
-					<option value="option2">Option 2</option>
-					<option value="option3">Option 3</option>
-					<option value="option4">Option 4</option>
-				</select>
-		</label></br>
-		<label class="equationItem">
-			<button class="button button-large equationItem">equation 2</button>
-		</label></br>
-		<label class="equationItem">
-			<button class="button button-large equationItem">equation 3</button>
-		</label></br>
-	</div>
-</ion-content> 
+<ion-view view-title="Physics Equations">
+  <ion-content>
+    <div class="equationListLeft">
+      <label class="equationItem">
+        <button id="soundVelocity" class="button button-large equationItem" ng-click="assignModal($event)">{{mechanical.soundVelocity}}</button>
+      </label></br>
+      <label class="equationItem">
+        <button id="stress" class="button button-large equationItem" ng-click="assignModal($event)">{{mechanical.stress}}</button>
+      </label></br>
+      <label class="equationItem">
+        <button id="strain" class="button button-large equationItem" ng-click="assignModal($event)">{{mechanical.strain}}</button>
+      </label></br>
+    </div>
+    <div class="equationListRight">
+      <label class="equationItem">
+        <button id="flowRate" class="button button-large equationItem" ng-click="assignModal($event)">{{mechanical.flowRate}}</button>
+      </label></br>
+      <label class="equationItem">
+        <button id="torque" class="button button-large equationItem" ng-click="assignModal($event)">{{mechanical.torque}}</button>
+      </label></br>
+      <label class="equationItem">
+        <button id="cantilever" class="button button-large equationItem" ng-click="assignModal($event)">{{mechanical.cantileverBeam}}</button>
+      </label></br>
+    </div>
+  </ion-content>
 </ion-view>

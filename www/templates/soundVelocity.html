@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Velocity of Sound</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="save()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="velocity" ng-model="value.one" placeholder="Velocity">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="temperature" ng-model="value.two" placeholder="Temperature">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="gamma" ng-model="value.three" placeholder="Gamma">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="gasConstant" ng-model="value.four" placeholder="Gas Constant">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>Velocity = {{returned.one}}</br>Temperature = {{returned.two}}</br>
+            Gamma = {{returned.three}}</br>Gas Constant = {{returned.four}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeSoundVelocity()">Compute</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

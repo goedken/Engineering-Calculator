@@ -1,0 +1,39 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Electric Current</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="current" ng-model="value.one" placeholder="Current">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="charge1" ng-model="value.two" placeholder="Charge 1 (or delta Charge)">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="charge2" ng-model="value.three" placeholder="Charge 2">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="time1" ng-model="value.four" placeholder="Time 1 (or delta Time)">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="time2" ng-model="value.five" placeholder="Time 2">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>{{returned.six}}</br>I = {{returned.one}}</br>q1 = {{returned.two}}</br>
+          q2 = {{returned.three}}</br>t1 = {{returned.four}}</br>t2 = {{returned.five}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeElecCurr()">Compute</button>
+        </label>
+        <label class="item">
+          <button class="button button-block button-assertive" ng-click="closeWindow()">Close</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
