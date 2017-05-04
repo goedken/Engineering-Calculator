@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window, $ionicPlatform, physicsFactory, mechanicalFactory, electricalFactory, chemicalFactory) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicLoading, $timeout, $window, $ionicPlatform, physicsFactory, mechanicalFactory, electricalFactory, chemicalFactory, generalFactory) {
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
 	// To listen for when this page is active (for example, to refresh data),
@@ -20,7 +20,11 @@ angular.module('starter.controllers', [])
 			six: ""
 	}
 	$scope.general = {
-
+			feetMeters: "Feet to Meters",
+			milesKm: "Miles to Kilometers",
+			gallonsLiters: "Gallons to Liters",
+			wattsHorsepower: "Watts to Horsepower",
+			newtonsLbs: "Newtons to Pounds"
 	}
 //	$scope.civil = {
 
@@ -154,6 +158,21 @@ angular.module('starter.controllers', [])
 		case ($scope.chemical.soudersBrown):
 			$scope.template.url = 'templates/modals/soudersBrown.html';
 		break;
+		case ($scope.general.feetMeters):
+			$scope.template.url = 'templates/modals/feetMeters.html';
+		break;
+		case ($scope.general.milesKm):
+			$scope.template.url = 'templates/modals/milesKm.html';
+		break;
+		case ($scope.general.gallonsLiters):
+			$scope.template.url = 'templates/modals/gallonsLiters.html';
+		break;
+		case ($scope.general.wattsHorsepower):
+			$scope.template.url = 'templates/modals/wattsHorsepower.html';
+		break;
+		case ($scope.general.newtonsLbs):
+			$scope.template.url = 'templates/modals/newtonsLbs.html';
+		break;
 		default:
 			break;
 		}
@@ -190,6 +209,8 @@ angular.module('starter.controllers', [])
 		$scope.modal.hide();
 	};
 
+	var genFac = new generalFactory();
+	var chemFac = new chemicalFactory();
 	var physFac = new physicsFactory();
 	var elecFac = new electricalFactory();
 	var mechFac = new mechanicalFactory();
@@ -375,8 +396,6 @@ angular.module('starter.controllers', [])
 		mechFac.cantilever(k,e,i,l);
 		$scope.returned = mechFac.value;
 	}
-
-	var chemFac = new chemicalFactory();
 	$scope.computeBoyles = function(){
 		$scope.returned.state = "";
 		var p1 = $scope.value.one;
@@ -440,20 +459,129 @@ angular.module('starter.controllers', [])
 		chemFac.soudersBrown(k, pl, pv);
 		$scope.returned = chemFac.value;
 	}
+	$scope.computeFeetMeters = function() {
+		$scope.returned.state = "";
+		var ft = $scope.value.one;
+		var m = $scope.value.two;
+		genFac.feetMeters(ft, m);
+		$scope.returned = genFac.value;
+	};
+	$scope.computeMilesKm = function() {
+		$scope.returned.state = "";
+		var mi = $scope.value.one;
+		var km = $scope.value.two;
+		genFac.milesKm(mi, km);
+		$scope.returned = genFac.value;
+	};
+	$scope.computeGallonsLiters = function() {
+		$scope.returned.state = "";
+		var g = $scope.value.one;
+		var l = $scope.value.two;
+		genFac.gallonsLiters(g, l);
+		$scope.returned = genFac.value;
+	};
+	$scope.computeWattsHorsepower = function() {
+		$scope.returned.state = "";
+		var w = $scope.value.one;
+		var hp = $scope.value.two;
+		genFac.wattsHorsepower(w, hp);
+		$scope.returned = genFac.value;
+	};
+	$scope.computeNewtonsLbs = function() {
+		$scope.returned.state = "";
+		var n = $scope.value.one;
+		var lbs = $scope.value.two;
+		genFac.newtonsLbs(n, lbs);
+		$scope.returned = genFac.value;
+	}
 })
 
 
 .factory('generalFactory', function(){
-	var units = {
+	var generalFactory = function() {
+		var value = {
+				state: "",
+				one: "",
+				two: ""
+		};
 
-	}
+		var feetMeters = function(ft, m){
+			if(ft == "") {
+				ft = 0.3048 * m;
+			} else if (m == "") {
+				m = 3.28084 * ft;
+			} else {
+				value.state = "Must only fill in one variable";
+			}
+			value.one = ft;
+			value.two = m;
+		};
+
+		var milesKm = function(mi, km) {
+			if(mi == "") {
+				mi = 0.621371 * km;
+			} else if (km == "") {
+				km = 1.60934 * mi;
+			} else {
+				value.state = "Must only fill in one variable";
+			}
+			value.one = mi;
+			value.two = km;
+		};
+
+		var gallonsLiters = function(g, l){
+			if(g == "") {
+				g = 0.264172 * l;
+			} else if (l == "") {
+				l = 3.78541 * g;
+			} else {
+				value.state = "Must only fill in one variable";
+			}
+			value.one = g;
+			value.two = l;
+		};
+
+		var wattsHorsepower = function(w, hp) {
+			if(w == "") {
+				w = 745.7 * hp;
+			} else if (hp == "") {
+				hp = 0.00124102 * w;
+			} else {
+				value.state = "Must only fill in one variable";
+			}
+			value.one = w;
+			value.two = hp;
+		};
+
+		var newtonsLbs = function(n, lbs) {
+			if(n == "") {
+				n = 4.44822 * lbs;
+			} else if (lbs == "") {
+				lbs = 0.224809 * n;
+			} else {
+				value.state = "Must only fill in one variable";
+			}
+			value.one = n;
+			value.two = lbs;
+		};
+
+		return {
+			value: value,
+			feetMeters: feetMeters,
+			milesKm: milesKm,
+			gallonsLiters: gallonsLiters,
+			wattsHorsepower: wattsHorsepower,
+			newtonsLbs: newtonsLbs
+		}
+	};
+	return generalFactory;
 })
 
-.factory('civilFactory', function(){
-	var units = {
+//.factory('civilFactory', function(){
+//var units = {
 
-	}
-})
+//}
+//})
 
 .factory('mechanicalFactory', function(){
 	var mechanicalFactory = function(){
@@ -946,11 +1074,11 @@ angular.module('starter.controllers', [])
 	return chemicalFactory;
 })
 
-.factory('structuralFactory', function(){
-	var units = {
-
-	}
-})
+//.factory('structuralFactory', function(){
+//	var units = {
+//
+//	}
+//})
 
 .factory('physicsFactory', function(){
 	var physicsFactory = function(){

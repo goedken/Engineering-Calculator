@@ -9,20 +9,23 @@
     <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="pressure1" ng-model="value.one" placeholder="Pressure 1">
+          <input type="text" name="pressure1" ng-model="value.one" placeholder="Pressure 1 (atm)">
         </label>
         <label class="item item-input">
-          <input type="text" name="volume1" ng-model="value.two" placeholder="Volume 1">
+          <input type="text" name="volume1" ng-model="value.two" placeholder="Volume 1 (L)">
         </label>
         <label class="item item-input">
-          <input type="text" name="pressure2" ng-model="value.three" placeholder="Pressure 2">
+          <input type="text" name="pressure2" ng-model="value.three" placeholder="Pressure 2(atm)">
         </label>
         <label class="item item-input">
-          <input type="text" name="volume2" ng-model="value.four" placeholder="Volume 2">
+          <input type="text" name="volume2" ng-model="value.four" placeholder="Volume 2 (L)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>P1 = {{returned.one}}</br>V1 = {{returned.two}}</br>P2 = {{returned.three}}</br>
-            V2 = {{returned.four}}</br></p>
+          <p>{{returned.state}}</br>
+            P1 = {{returned.one}}<span ng-if="returned.one"> atm </span></br>
+            V1 = {{returned.two}}<span ng-if="returned.two"> L </span></br>
+            P2 = {{returned.three}}<span ng-if="returned.three"> atm </span></br>
+            V2 = {{returned.four}} <span ng-if="returned.four"> L </span></br></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeBoyles()">Compute</button>

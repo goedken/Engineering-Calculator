@@ -1,0 +1,29 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Feet to Meters</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="feet" ng-model="value.one" placeholder="Feet">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="meters" ng-model="value.two" placeholder="Meters">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>Feet = {{returned.one}}<br>Meters = {{returned.two}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeFeetMeters()">Compute</button>
+        </label>
+        <label class="item">
+          <button class="button button-block button-assertive" ng-click="closeWindow()">Close</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

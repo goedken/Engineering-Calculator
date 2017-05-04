@@ -9,20 +9,23 @@
     <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="force" ng-model="value.one" placeholder="Force">
+          <input type="text" name="force" ng-model="value.one" placeholder="Force (N)">
         </label>
         <label class="item item-input">
-          <input type="text" name="k" ng-model="value.two" placeholder="Coulomb's Law Constant">
+          <input type="text" name="k" ng-model="value.two" placeholder="Coulomb's Law Constant (N*m^2/C^2)">
         </label>
         <label class="item item-input">
-          <input type="text" name="charge" ng-model="value.three" placeholder="Charge">
+          <input type="text" name="charge" ng-model="value.three" placeholder="Charge (C)">
         </label>
         <label class="item item-input">
-          <input type="text" name="distance" ng-model="value.four" placeholder="Distance">
+          <input type="text" name="distance" ng-model="value.four" placeholder="Distance (m)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>F = {{returned.one}}</br>k = {{returned.two}}</br>
-          qi = {{returned.three}}</br>r = {{returned.four}}</br></p>
+          <p>{{returned.state}}</br>
+            F = {{returned.one}}<span ng-if="returned.one"> N</span></br>
+            k = {{returned.two}}<span ng-if="returned.two"> N*m^2/C^2</span></br>
+          qi = {{returned.three}}<span ng-if="returned.three"> C</span></br>
+            r = {{returned.four}}<span ng-if="returned.four"> m</span></br></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeElecPot()">Compute</button>

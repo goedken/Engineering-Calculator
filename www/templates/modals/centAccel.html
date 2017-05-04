@@ -9,17 +9,19 @@
     <form>
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="acceleration" ng-model="value.one" placeholder="Acceleration">
+          <input type="text" name="acceleration" ng-model="value.one" placeholder="Acceleration (m/s^2)">
         </label>
         <label class="item item-input">
-        <input type="text" name="velocity" ng-model="value.two" placeholder="Velocity">
+        <input type="text" name="velocity" ng-model="value.two" placeholder="Velocity (m/s)">
       </label>
         <label class="item item-input">
-          <input type="text" name="radius" ng-model="value.three" placeholder="radius">
+          <input type="text" name="radius" ng-model="value.three" placeholder="radius (m)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>a = {{returned.one}}</br>v = {{returned.two}}</br>
-            r = {{returned.three}}</p>
+          <p>{{returned.state}}</br>
+            a = {{returned.one}}<span ng-if="returned.one"> m/s^2</span></br>
+            v = {{returned.two}}<span ng-if="returned.two"> m/s</span></br>
+            r = {{returned.three}}<span ng-if="returned.three"> m</span></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeCentAccel()">Compute</button>

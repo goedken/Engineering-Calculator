@@ -1,0 +1,29 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Miles to Kilometers</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="miles" ng-model="value.one" placeholder="Miles">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="km" ng-model="value.two" placeholder="Kilometers">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>Miles = {{returned.one}}<br>Kilometers = {{returned.two}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeMilesKm()">Compute</button>
+        </label>
+        <label class="item">
+          <button class="button button-block button-assertive" ng-click="closeWindow()">Close</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

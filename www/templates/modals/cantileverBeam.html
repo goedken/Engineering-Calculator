@@ -9,20 +9,23 @@
     <form ng-submit="save()">
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="stiffness" ng-model="value.one" placeholder="Stiffness">
+          <input type="text" name="stiffness" ng-model="value.one" placeholder="Stiffness (Nm^-1)">
         </label>
         <label class="item item-input">
-          <input type="text" name="youngsModulus" ng-model="value.two" placeholder="Youngs Modulus">
+          <input type="text" name="youngsModulus" ng-model="value.two" placeholder="Youngs Modulus (Nm^-2)">
         </label>
         <label class="item item-input">
-          <input type="text" name="inertia" ng-model="value.three" placeholder="Area Moment of Inertia">
+          <input type="text" name="inertia" ng-model="value.three" placeholder="Area Moment of Inertia (m^4)">
         </label>
         <label class="item item-input">
-          <input type="text" name="length" ng-model="value.four" placeholder="Length">
+          <input type="text" name="length" ng-model="value.four" placeholder="Length (m)">
         </label>
         <label class="item">
-          <p>{{returned.state}}</br>Stiffness = {{returned.one}}</br>Youngs Modulus = {{returned.two}}</br>
-            Area Moment of Inertia = {{returned.three}}</br>Length = {{returned.four}}</br></p>
+          <p>{{returned.state}}</br>
+            Stiffness = {{returned.one}}<span ng-if="returned.one"> Nm^-1</span></br>
+            Youngs Modulus = {{returned.two}}<span ng-if="returned.two"> Nm^-2</span></br>
+            Area Moment of Inertia = {{returned.three}}<span ng-if="returned.three"> m^4</span></br>
+            Length = {{returned.four}}<span ng-if="returned.four"> m </span></br></p>
         </label>
         <label class="item">
           <button class="button button-block button-positive" ng-click="computeCantilever()">Compute</button>

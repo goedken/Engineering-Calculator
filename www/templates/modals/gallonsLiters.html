@@ -1,0 +1,29 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Gallons to Liters</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeWindow()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="gallons" ng-model="value.one" placeholder="Gallons">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="liters" ng-model="value.two" placeholder="Liters">
+        </label>
+        <label class="item">
+          <p>{{returned.state}}</br>Gallons = {{returned.one}}<br>Liters = {{returned.two}}</br></p>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="computeGallonsLiters()">Compute</button>
+        </label>
+        <label class="item">
+          <button class="button button-block button-assertive" ng-click="closeWindow()">Close</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
